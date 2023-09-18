@@ -12,6 +12,7 @@ int main()
     int bet = 0;
     int bet_chose = 0;
     int choice = 0;
+    int role = 0;
 
     // för if satser
     int language;
@@ -184,9 +185,20 @@ int main()
             }
         }
 
-        rand() % 36 + 1;
+        
+
+        role = rand() % 36 + 1;
+        
+
+        /*----------------------------------*\
+        |    tar reda på om spelaren van     |
+        \*----------------------------------*/
+        if (ask_chose == 1 && choice == role){
+
+        }
 
         cout<< "victory :D" << endl;
+        cout<< role << endl;
 
         break;
     }
@@ -194,5 +206,5 @@ int main()
     
     
 
-
+    return 0;
 }
