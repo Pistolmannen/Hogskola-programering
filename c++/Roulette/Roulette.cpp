@@ -12,7 +12,9 @@ int main()
     int bet = 0;
     int bet_chose = 0;
     int choice = 0;
-    int role = 0;
+    double role = 0;
+    double role_check = 0;
+    string color;
 
     // för if satser
     int language;
@@ -35,6 +37,7 @@ int main()
     string bet_typ;
     string bet_typ_nummber;
     string bet_typ_color;
+    string the_role;
 
     /*--------------------------------------------*\
     |    tar reda på vilket språk spelaren vill    |
@@ -55,12 +58,13 @@ int main()
             rules_2 = "you then have to choose whether to bet on numbers or colors (numbers give 10 times reward colors give 2 times)";
             rules_3 = "the roulette will the roll a random number between 1 and 36 and then compare it to your bet (even numbers count as black and uneven numbers count as red)";
             rules_4 = "If you bet corectly you get 10 times the reward if you beted on number and 2 times if you beted on colors";
-            money_amount = "You curently have " + std::to_string(curent_money) + " kr to play with";
+            money_amount = "You curently have " + to_string(curent_money) + " kr to play with";
             no_more_money = "You have lost all of your money and have there for been kicked out of the roulette";
             bet_amount = "bet either 100, 300 or 500kr (1 for 100, 2 for 300, 3 for 500)";
             bet_typ = "number or color (1 for nummer 2 for color)";
             bet_typ_nummber = "bet on a number between 1 and 36 (0 to go back)";
             bet_typ_color = "bet on red or black (0 to go back, 1 for red, 2 for black)";
+            the_role = "The roulette has roled the nummber " + to_string(role);
         }
         else if(language == 2){
             invalid_selection = "snäla försök igen";
@@ -185,26 +189,34 @@ int main()
             }
         }
 
-        
-
+        /*----------------------------*\
+        |    hur rulandet går till     |
+        \*----------------------------*/
         role = rand() % 36 + 1;
-        
+
+        role_check = role/2;
+
+        if (role_check == floor(role_check)){
+            color = "black";
+        }
+        else{
+            color = "red";
+        }
 
         /*----------------------------------*\
         |    tar reda på om spelaren van     |
         \*----------------------------------*/
-        if (ask_chose == 1 && choice == role){
-
-        }
 
         cout<< "victory :D" << endl;
         cout<< role << endl;
+        cout<< "test" << endl;
+        cout<< role_check << endl;
+        cout<< "en farj" << endl;
+        cout<< color << endl;
 
         break;
     }
     
     
-    
-
     return 0;
 }
