@@ -15,7 +15,9 @@ int main()
     int choice = 0;
     double role = 0;
     double role_check = 0;
+    int true_role = 0;
     string color;
+    int keep_going = 0;
 
     // för if satser
     int language;
@@ -43,6 +45,8 @@ int main()
     string win_nummber;
     string win_color;
     string lose;
+    string keep_playing;
+    string test;
 
     /*--------------------------------------------*\
     |    tar reda på vilket språk spelaren vill    |
@@ -64,16 +68,17 @@ int main()
             rules_3 = "the roulette will the roll a random number between 1 and 36 and then compare it to your bet (even numbers count as black and uneven numbers count as red)";
             rules_4 = "If you bet corectly you get 10 times the reward if you beted on number and 2 times if you beted on colors";
             money_amount = "You curently have " + to_string(curent_money) + " kr to play with";
-            total_change = "you curent total change in money is " + to_string(total_win);
+            total_change = "Your curent total change in money is " + to_string(total_win);
             no_more_money = "You have lost all of your money and have there for been kicked out of the roulette";
             bet_amount = "bet either 100, 300 or 500 kr (1 for 100, 2 for 300, 3 for 500)";
             bet_typ = "number or color (1 for nummer 2 for color)";
             bet_typ_nummber = "bet on a number between 1 and 36 (0 to go back)";
             bet_typ_color = "bet on red or black (0 to go back, 1 for red, 2 for black)";
-            the_role = "The roulette has roled the nummber " + to_string(role);
+            the_role = "The roulette has roled the nummber " + to_string(true_role) + " which is the color " + color;
             win_nummber = "You beted on the corect nummber and have won " + to_string(money_change) + "kr";
             win_color = "You beted on the corect color and have won "+ to_string(money_change) + "kr";
-            lose = "you beted wrong and have lost " + to_string(money_change) + "kr";
+            lose = "You beted wrong and have lost " + to_string(money_change) + "kr";
+            keep_playing = "Do you want to keep playing? (1 for yes 2 for no)";
         }
         else if(language == 2){
             invalid_selection = "snäla försök igen";
@@ -121,7 +126,7 @@ int main()
     while (true){
         if (language == 1){
             money_amount = "You curently have " + to_string(curent_money) + " kr to play with";
-            total_change = "you curent total change in money is " + to_string(total_win);
+            total_change = "Your curent total change in money is " + to_string(total_win);
         }
         cout<< blank << endl;
         cout<< money_amount <<endl;
@@ -217,9 +222,15 @@ int main()
             color = "red";
         }
 
+        true_role = floor(role);
+
+        if (language == 1){
+            the_role = "The roulette has roled the nummber " + to_string(true_role) + " which is the color " + color;
+        }
+
         cout<< blank << endl;
-        cout<< role << endl;
-        cout<< color << endl;
+        cout<< the_role << endl;
+        cin >> test;
 
         /*----------------------------------*\
         |    tar reda på om spelaren van     |
@@ -265,8 +276,35 @@ int main()
             cout<< lose << endl;
         }
 
+        if (language == 1){
+            money_amount = "You curently have " + to_string(curent_money) + " kr to play with";
+            total_change = "Your curent total change in money is " + to_string(total_win);
+        }
+        cout<< blank << endl;
+        cout<< money_amount <<endl;
+        cout<< total_change <<endl;
 
+        /*-----------------------------*\
+        |    vill spelaren fortsäta     |
+        \*-----------------------------*/
+        while (true)
+        {
+            cout<< blank << endl;
+            cout<< keep_playing << endl;
+            cin >> keep_going;
+
+            if(keep_going == 1 || keep_going == 2){
+                break;
+            }
+   
+            cout<< invalid_selection << endl;
+            continue;
+        }
         
+        if (keep_going == 2){
+            break;
+        }
+  
     }
     
     
