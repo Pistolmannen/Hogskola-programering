@@ -1,6 +1,7 @@
 #include <iostream> 
 #include <string>
 #include <ctime>
+#include <stdlib.h>
 using namespace std;
 
 int main()
@@ -228,9 +229,10 @@ int main()
             the_role = "The roulette has roled the nummber " + to_string(true_role) + " which is the color " + color;
         }
 
+        _sleep(1000);
         cout<< blank << endl;
         cout<< the_role << endl;
-        cin >> test;
+        _sleep(5000);
 
         /*----------------------------------*\
         |    tar reda på om spelaren van     |
