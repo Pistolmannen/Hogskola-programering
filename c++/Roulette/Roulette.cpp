@@ -35,6 +35,7 @@ int main()
     string rules_2;
     string rules_3;
     string rules_4;
+    string rules_5;
     string money_amount;
     string total_change;
     string no_more_money;
@@ -65,9 +66,10 @@ int main()
             welcome = "Hello player and welcome to the roulette wheel";
             question_rules = "Do you want to see the rules? (1 for yes 2 for no)";
             rules_1 = "This roulette works in such a way that you can only bet either 100, 300, or 500kr in one round";
-            rules_2 = "you then have to choose whether to bet on numbers or colors (numbers give 10 times reward colors give 2 times)";
-            rules_3 = "the roulette will the roll a random number between 1 and 36 and then compare it to your bet (even numbers count as black and uneven numbers count as red)";
-            rules_4 = "If you bet corectly you get 10 times the reward if you beted on number and 2 times if you beted on colors";
+            rules_2 = "you then have to choose whether to bet on numbers or colors (even numbers count as black and uneven numbers count as red)";
+            rules_3 = "the roulette will then roll a random number between 1 and 36 and compare it to your bet";
+            rules_4 = "if you betted correctly you get the reward (10 times bet if betting on numbers and 2 times bet if betting on color)";
+            rules_5 = "and if you betted wrong you lose what you betted";
             money_amount = "You curently have " + to_string(curent_money) + " kr to play with";
             total_change = "Your curent total change in money is " + to_string(total_win);
             no_more_money = "You have lost all of your money and have there for been kicked out of the roulette";
@@ -76,9 +78,9 @@ int main()
             bet_typ_nummber = "bet on a number between 1 and 36 (0 to go back)";
             bet_typ_color = "bet on red or black (0 to go back, 1 for red, 2 for black)";
             the_role = "The roulette has roled the nummber " + to_string(true_role) + " which is the color " + color;
-            win_nummber = "You beted on the corect nummber and have won " + to_string(money_change) + "kr";
-            win_color = "You beted on the corect color and have won "+ to_string(money_change) + "kr";
-            lose = "You beted wrong and have lost " + to_string(money_change) + "kr";
+            win_nummber = "You betted on the corect nummber and have won " + to_string(money_change) + "kr";
+            win_color = "You betted on the corect color and have won "+ to_string(money_change) + "kr";
+            lose = "You betted wrong and have lost " + to_string(money_change) + "kr";
             keep_playing = "Do you want to keep playing? (1 for yes 2 for no)";
         }
         else if(language == 2){
@@ -110,6 +112,7 @@ int main()
             cout<< rules_2 << endl;
             cout<< rules_3 << endl;
             cout<< rules_4 << endl;
+            cout<< rules_5 << endl;
             break;
         }
         else if(ask_rules == 2){
