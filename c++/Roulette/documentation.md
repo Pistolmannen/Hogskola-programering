@@ -81,16 +81,27 @@ Jag tycker spelaren ska också ha tillåtelse att gå tillbaka under gissningen 
 ![Alt text](image-1.png)  
 bild på start av loopen, valet av satsningar och  valet av gissning
 
-efter att valen av satsning och gissning har skät så tycker jag att  
-programet borde rula rouletten
+Efter att satsningen och gissningsvalen har hänt tycker jag att programmet borde rulla rouletten.
 
+Rulningen borde börjar med att rula ett tal mellan 1 och 36 som sedna skrivs ut  
+Efter att ha skrivit ut rullingen borde programmet kolla om spelaren gissade på nummer eller färg.
 
+Om spelaren gissade på nummer så borde bara programmet bara behöver jämföra vad splearen gissa på med vad som rullades och om dom är samma så van spelaren.
 
+Om spelaren gissa på färg så ska programmet kolla om det är ett jämt tal eller inte för att ta reda på färg och sedan kolla om spelaren gissa på korekt färg.
 
+Efter att ha kollat om spelaren van borde programmet skriva ut resultatet och ändra mängden pengar och totala förändringen.
 
+![Alt text](image-2.png)
+![Alt text](image-3.png)  
+bild på rulning och checkning av resultatet
 
+Efter att ha get resultatet så enligt mig borde spelaren få valet om att köra igen.  
+Om spelaren väljer att köra igen så kommer dom tillbaka till att få välja sattsning.
 
-
+![Alt text](image-4.png)
+![Alt text](image-5.png)  
+bild på hela flödesdiagramet
 
 hade valt språk kunde tilldela en text beroende på om det är svenska eller engelska.   
 Sedan när jag behöde skriva ut något i programet kunnde jag bara kalla på  
