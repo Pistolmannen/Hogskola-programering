@@ -1,14 +1,14 @@
 #include <iostream> 
-#include <string>
-#include <ctime>
-#include <Windows.h>
-#include <stdlib.h>
+#include <string>       //används för att kunna konvertera int till string
+#include <ctime>        //används för att kunna randomisera ett tal
+#include <Windows.h>  //används för att kunna säta output connsolen till UTF-8
 using namespace std;
 
 int main()
 {
     SetConsoleOutputCP(CP_UTF8);
     srand(time(0));
+
 
     int total_win = 0;
     int curent_money = 1000;

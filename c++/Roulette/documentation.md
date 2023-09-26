@@ -103,11 +103,42 @@ Om spelaren väljer att köra igen så kommer dom tillbaka till att få välja s
 ![Alt text](image-5.png)  
 bild på hela flödesdiagramet
 
+Några svag heter med sättet jag tänk på är att spelaren skule behöva starta om om dom vill kunna byta språk eller undrar något om reglerna.  
+Ett annat problem skule vara att spelaren inte kan gå tillbacka om dom vil ändra hur mycket pengar dom vill sattsa.
 
+En styrka med mitt sätt är att man måste välja att satsa på antigen färg eller nummer först vilket betyder att om spelaren vill rösta på nummer så behöver jag bara jämföra nummer och inte bry mej om vilken färg det blev.
 
+<br>
 
+### Problem
 
+Några problem som jag stöte på medans jag programerade programet var
 
+* att få programet att korekt skriva ut svenska då output terminalen inte kunde skriva ut å, ä, eller ö korekt  
+Jag löste deta problem genom att importera  
+<Windows.h>  
+vilket tillät mej att i börgan av programet använda komandot   
+SetConsoleOutputCP(CP_UTF8);  
+vilket satte output terminalen till UTF-8  
+så programet kunde korekt skriva ut  å, ä och ö
+
+* hur jag skule kombenera strängar med ints då det behövdes för att kunna skriva ut vissa delar som hur mycket man hade att spela för.  
+Problemet löstes genom att importera  
+#include <.string>  
+som innehöll kommandot   
+to_string()   
+vilket tillät mej att kunna convertera en int till en string  
+så när jag skule skriva ut hur mycket spelaren hade använde jag   
+money_amount = "Du har " + to_string(curent_money) + " kr att spela med";
+
+* att kunna stoppa programmet i några sekunder då jag tyckte programet skrev ut mycket samtidigt så det var svårt att hänga med.   
+Deta löste jag genom att använda komandot   
+_sleep()  
+det stoppar programmet i antalet millisekunder som man skriver in
+så genom att skriva in   
+_sleep(4000)  
+står programmet still i 4 sekunder.
+Detta gjorde att det blir enklare för spelaren att hänga med i vad som hände när roulette ljulet kördes.
 
 hade valt språk kunde tilldela en text beroende på om det är svenska eller engelska.   
 Sedan när jag behöde skriva ut något i programet kunnde jag bara kalla på  
