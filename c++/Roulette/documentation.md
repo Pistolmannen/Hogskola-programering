@@ -103,6 +103,12 @@ Om spelaren väljer att köra igen så kommer dom tillbaka till att få välja s
 ![Alt text](image-5.png)  
 bild på hela flödesdiagramet
 
+
+
+
+
+
+
 hade valt språk kunde tilldela en text beroende på om det är svenska eller engelska.   
 Sedan när jag behöde skriva ut något i programet kunnde jag bara kalla på  
 strängen för att skriva ut.  

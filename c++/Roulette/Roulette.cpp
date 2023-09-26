@@ -42,6 +42,7 @@ int main()
     string money_amount;
     string total_change;
     string no_more_money;
+    string not_enough_money;
     string bet_amount;
     string bet_typ;
     string bet_typ_nummber;
@@ -76,6 +77,7 @@ int main()
             money_amount = "You currently have " + to_string(curent_money) + " kr to play with";
             total_change = "Your current total change in money is " + to_string(total_win);
             no_more_money = "You have lost all of your money and have therefore been kicked out of the roulette";
+            not_enough_money = "You don't have enough money for that bet";
             bet_amount = "bet either 100, 300 or 500 kr (1 for 100, 2 for 300, 3 for 500)";
             bet_typ = "number or color (1 for number 2 for color)";
             bet_typ_nummber = "bet on a number between 1 and 36 (0 to go back)";
@@ -98,6 +100,7 @@ int main()
             money_amount = "Du har " + to_string(curent_money) + " kr att spela med";
             total_change = "Din nuvarande totala förändring i pengar är " + to_string(total_win);
             no_more_money = "Du har förlorat alla dina pengar och har därför blivit utslängd från rouletten";
+            not_enough_money = "Du har inte tillräckligt med pengar för den satsningen";
             bet_amount = "satsa antingen 100, 300 eller 500 kr (1 för 100, 2 för 300, 3 för 500)";
             bet_typ = "nummer eller färg (1 för nummer 2 för färg)";
             bet_typ_nummber = "satsa på ett nummer mellan 1 och 36 (0 för att gå tillbaka)";
@@ -162,16 +165,12 @@ int main()
         cout<< money_amount <<endl;
         cout<< total_change <<endl;
 
-        if (curent_money <= 0){
-            cout<< no_more_money <<endl;
-            break;
-        }
-
         /*----------------------------*\
         |    tar reda på hur mycket    |
         |    spelaren vill sattsa      |
         \*----------------------------*/
         while (true){
+            cout<< blank << endl;
             cout<< bet_amount <<endl;
 
             cin >> ask_bet;
@@ -187,6 +186,11 @@ int main()
             }
             else{
                 cout<< invalid_selection << endl;
+                continue;
+            }
+
+            if (bet > curent_money){
+                cout<< not_enough_money << endl;
                 continue;
             }
 
@@ -353,6 +357,12 @@ int main()
         cout<< money_amount <<endl;
         cout<< total_change <<endl;
         _sleep(3000);
+
+        if (curent_money <= 0){
+            cout<< blank << endl;
+            cout<< no_more_money <<endl;
+            break;
+        }
 
         /*-----------------------------*\
         |    vill spelaren fortsäta     |
