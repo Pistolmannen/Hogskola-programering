@@ -146,6 +146,7 @@ Problemet låg i att tilldela strängar i början av programet så mängden peng
 Det löstes genom att tilldela dom spesifika strängarn senare i spel loopen där variabelna hade ändrats.  
 Jag är inte nöjd med denna lösningen då jag skulle föredrat att ha alla språk delar i början av programet men kunde inte hita någon annan lösning.
 
+* att skriva in strängar
 
 <br>
 
