@@ -9,7 +9,7 @@ int main()
     SetConsoleOutputCP(CP_UTF8);
     srand(time(0));
 
-
+    // gömda variabler 
     int total_win = 0;
     int curent_money = 1000;
     int money_change = 0;
@@ -23,7 +23,7 @@ int main()
     int color_number;
     int keep_going = 0;
 
-    // för if satser
+    // variabler för cin
     int language;
     int ask_rules;
     int ask_bet;
@@ -72,7 +72,7 @@ int main()
             rules_2 = "you then have to choose whether to bet on numbers or colors (even numbers count as black and uneven numbers count as red)";
             rules_3 = "the roulette will then roll a random number between 1 and 36 and compare it to your bet";
             rules_4 = "if you betted correctly you get the reward (10 times bet if betting on numbers and 2 times bet if betting on color)";
-            rules_5 = "and if you betted wrong you lose what you betted";
+            rules_5 = "and if you betted wrong you lose what you betted.";
             money_amount = "You currently have " + to_string(curent_money) + " kr to play with";
             total_change = "Your current total change in money is " + to_string(total_win);
             no_more_money = "You have lost all of your money and have therefore been kicked out of the roulette";
@@ -95,7 +95,7 @@ int main()
             rules_2 = "du måste sedan välja om du vill satsa på nummer eller färger (jämna nummer räknas som svarta och ojämna nummer räknas som röda)";
             rules_3 = "rouletten kommer sedan att rulla ett slumpmässigt nummer mellan 1 och 36 och jämföra det med din insats";
             rules_4 = "om du satsade rätt får du belöningen (10 gånger satsning om du satsar på siffror och 2 gånger satsning om du satsar på färg)";
-            rules_5 = "och om du satsade fel förlorar du det du satsade";
+            rules_5 = "och om du satsade fel förlorar du det du satsade.";
             money_amount = "Du har " + to_string(curent_money) + " kr att spela med";
             total_change = "Din nuvarande totala förändring i pengar är " + to_string(total_win);
             no_more_money = "Du har förlorat alla dina pengar och har därför blivit utslängd från rouletten";
@@ -243,7 +243,7 @@ int main()
         }
 
         /*----------------------------*\
-        |    hur rulandet går till     |
+        |    hur rullandet går till     |
         \*----------------------------*/
         role = rand() % 36 + 1;
 
@@ -288,7 +288,7 @@ int main()
         /*----------------------------------*\
         |    tar reda på om spelaren van     |
         \*----------------------------------*/
-        if (ask_chose == 1 && choice == role){
+        if (ask_chose == 1 && choice == role){  //om spelaren gissa på korekt nummer
             money_change = bet * 10;
             curent_money += money_change;
             total_win += money_change;
@@ -302,7 +302,7 @@ int main()
             cout<< win_nummber << endl;
             _sleep(3000);
         }
-        else if (ask_chose == 2 && choice == 2 && color_number == 1){
+        else if (ask_chose == 2 && choice == 2 && color_number == 1){ //om spelaren gissa korekt på färgen svart
             money_change = bet * 2;
             curent_money += money_change;
             total_win += money_change;
@@ -316,7 +316,7 @@ int main()
             cout<< win_color << endl;
             _sleep(3000);
         }
-        else if (ask_chose == 2 && choice == 1 && color_number == 2){
+        else if (ask_chose == 2 && choice == 1 && color_number == 2){ //om spelaren gissa korekt på färgen röd
             money_change = bet * 2;
             curent_money += money_change;
             total_win += money_change;
@@ -330,7 +330,7 @@ int main()
             cout<< win_color << endl;
             _sleep(3000);
         }
-        else{
+        else{                                                   // om spelaren sattsade fel
             money_change = bet;
             curent_money -= money_change;
             total_win -= money_change;
@@ -358,6 +358,10 @@ int main()
         cout<< total_change <<endl;
         _sleep(3000);
 
+        /*-----------------------------*\
+        |     check om spelaren         |
+        |     fortfarande har pengar    |
+        \*-----------------------------*/
         if (curent_money <= 0){
             cout<< blank << endl;
             cout<< no_more_money <<endl;
