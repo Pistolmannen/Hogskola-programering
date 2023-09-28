@@ -29,7 +29,7 @@ int main()
     int ask_bet;
     int ask_chose;
 
-    // för språket
+    // variabler som används för språket
     string blank = " ";
     string invalid_selection;
     string welcome;
@@ -52,7 +52,6 @@ int main()
     string win_color;
     string lose;
     string keep_playing;
-    string test;
 
     /*--------------------------------------------*\
     |    tar reda på vilket språk spelaren vill    |
@@ -65,7 +64,7 @@ int main()
         
         cin >> language;
 
-        if(language == 1){
+        if(language == 1){  // engelska
             invalid_selection = "please try again";
             welcome = "Hello player and welcome to the roulette wheel";
             question_rules = "Do you want to see the rules? (1 for yes 2 for no)";
@@ -88,7 +87,7 @@ int main()
             lose = "You betted wrong and have lost " + to_string(money_change) + "kr";
             keep_playing = "Do you want to keep playing? (1 for yes 2 for no)";
         }
-        else if(language == 2){
+        else if(language == 2){  // svenska
             invalid_selection = "snälla försök igen";
             welcome = "Hej spelare och välkommen till roulettehjulet";
             question_rules = "Vill du se reglerna? (1 för ja 2 för nej)";
@@ -189,6 +188,7 @@ int main()
                 continue;
             }
 
+            // om spelaren inte har tillräkligt för sin valda sattsning
             if (bet > curent_money){
                 cout<< not_enough_money << endl;
                 continue;

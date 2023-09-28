@@ -112,37 +112,115 @@ En styrka med mitt sätt är att man måste välja att satsa på antigen färg e
 
 ### Problem
 
-Några problem som jag stöte på medans jag programerade programet var
+Problem som stötes på under programerandet var
 
 * att få programet att korekt skriva ut svenska då output terminalen inte kunde skriva ut å, ä, eller ö korekt  
-Jag löste deta problem genom att importera  
+Det löstes genom att importera  
 <Windows.h>  
-vilket tillät mej att i börgan av programet använda komandot   
+vilket innehåller kommandot    
 SetConsoleOutputCP(CP_UTF8);  
-vilket satte output terminalen till UTF-8  
-så programet kunde korekt skriva ut  å, ä och ö
+som satte output terminalen till UTF-8  
+så programet kunde korekt skriva ut  å, ä och ö.
 
-* hur jag skule kombenera strängar med ints då det behövdes för att kunna skriva ut vissa delar som hur mycket man hade att spela för.  
+* att kombenera strängar med ints då det behövdes för att kunna skriva ut vissa delar som hur mycket man hade att spela för.  
 Problemet löstes genom att importera  
-#include <.string>  
+<.string>  
 som innehöll kommandot   
 to_string()   
-vilket tillät mej att kunna convertera en int till en string  
-så när jag skule skriva ut hur mycket spelaren hade använde jag   
+vilket tillåter convertering av int till string  
+så när det skule skriva ut hur mycket spelaren hade användes   
 money_amount = "Du har " + to_string(curent_money) + " kr att spela med";
 
-* att kunna stoppa programmet i några sekunder då jag tyckte programet skrev ut mycket samtidigt så det var svårt att hänga med.   
-Deta löste jag genom att använda komandot   
+* att kunna stoppa programmet i några sekunder då programet skrev ut mycket information samtidigt så det var svårt att hänga med.   
+Deta löstes genom att använda komandot   
 _sleep()  
-det stoppar programmet i antalet millisekunder som man skriver in
+det stoppar programmet i antalet millisekunder som är in skriveret
 så genom att skriva in   
 _sleep(4000)  
 står programmet still i 4 sekunder.
 Detta gjorde att det blir enklare för spelaren att hänga med i vad som hände när roulette ljulet kördes.
 
-hade valt språk kunde tilldela en text beroende på om det är svenska eller engelska.   
-Sedan när jag behöde skriva ut något i programet kunnde jag bara kalla på  
-strängen för att skriva ut.  
-Genom att görat det på deta sät så blir det att alla mina texter jag skriver ut ligger på samma plats så det blir änklare att hantera dom och att jag kan använda samma sträng för både svenska och engelska så jag sliper behöva göra en output för svenska och en för engelska utan kan bara göra en output på strängen
+* att skriva ut dom korekta variablerna i texten då till en början så skev tillexempel  
+money_amount = "Du har " + to_string(curent_money) + " kr att spela med";  
+att spelaren alltid hade 1000 kr även om curent_money inte var 1000.  
+Problemet låg i att tilldela strängar i början av programet så mängden pengar sattes alltid till det som curent_money var i början villket var 1000.  
+Det löstes genom att tilldela dom spesifika strängarn senare i spel loopen där variabelna hade ändrats.  
+Jag är inte nöjd med denna lösningen då jag skulle föredrat att ha alla språk delar i början av programet men kunde inte hita någon annan lösning.
 
-efter språk biten tänkte jag det borde vara bäst att fråga om regler så spelaren kan få reglerna på språket som dom föredrar
+
+<br>
+
+### Beskrivning av kod
+
+Början av koden är där variablera sätts och där så delas dom i strängar som används för text och resten. 
+
+Efter variablera är språk biten villket är en cin med en if satts så spelaren väljer ett språk efter vilket programet använder dom deklarerade variablerna för att säta språket.
+
+en del av språk som exempel
+
+    cin >> language;
+
+        if(language == 1){  // engelska
+            invalid_selection = "please try again";
+            welcome = "Hello player and welcome to the roulette wheel";
+            question_rules = "Do you want to see the rules? (1 for yes 2 for no)";
+            rules_1 = "This roulette works in such a way that you can only bet either 
+            100, 300, or 500 kr in one round";
+            rules_2 = "you then have to choose whether to bet on numbers or colors (even 
+            numbers count as black and uneven numbers count as red)"; 
+        }
+        else if(language == 2){  // svenska
+            invalid_selection = "snälla försök igen";
+            welcome = "Hej spelare och välkommen till roulettehjulet";
+            question_rules = "Vill du se reglerna? (1 för ja 2 för nej)";
+            rules_1 = "Denna roulette fungerar på så sätt att du kan bara satsa antingen 
+            100, 300 eller 500 kr i en omgång";
+            rules_2 = "du måste sedan välja om du vill satsa på nummer eller färger 
+            (jämna nummer räknas som svarta och ojämna nummer räknas som röda)";
+        } 
+
+Nästa del i koden är välkoms biten villket hälsar spelaren välkommen och frågar om regler.
+
+Delen som kommer efter det är början av spel loopen 
+loopen börjar med att visa hur mycket pengar spelaren har och totala förändrigen av pengar.
+
+Efter vilket hur mycket spelaren vill satsa är.
+Den biten fungara genom att ha en cin som tar 1, 2 eller 3 för att bestäma hur mycket man vill satsa.
+Här var det planerat att kolla om spelaren hade slut på pengar men den biten fick bli flyttad till slutet av spel loopen då spelaren annars skulle fått frågan om att fortsätta spela även om dom inte hade pengar. 
+
+hur koden för satsning av pengar ser ut
+
+    /*----------------------------*\
+    |    tar reda på hur mycket    |
+    |    spelaren vill sattsa      |
+    \*----------------------------*/
+    while (true){
+        cout<< blank << endl;
+        cout<< bet_amount <<endl;
+
+        cin >> ask_bet;
+
+        if (ask_bet == 1) {
+            bet = 100;
+        }
+        else if (ask_bet == 2){
+            bet = 300;
+        }
+        else if (ask_bet == 3){
+            bet = 500;
+        }
+        else{
+            cout<< invalid_selection << endl;
+            continue;
+        }
+
+        // om spelaren inte har tillräkligt för sin valda satsning
+        if (bet > curent_money){
+            cout<< not_enough_money << endl;
+            continue;
+        }
+
+        break;
+    }
+
+delen som kommer 
