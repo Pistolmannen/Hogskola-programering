@@ -1,5 +1,5 @@
 # Inlämningsuppgift 1
-## Roulette
+# Roulette
 
 <br>
 
@@ -13,52 +13,94 @@ Grundläggande programmering med C++
 <br>
 <br>
 
-### Introduktion
+## Introduktion
 
 Denna uppgiften går ut på att skapa ett roulette hjul.  
-Deta roulette hjul ska fungera genom att spelaren ska
-starta med 1000 kr och sedan kunna satsa antigen  
-100, 300 eller 500 kr och sedan kunna gissa på antigen nummer eller färj.  
-Roulette hjulet ska ha nummer mellan 1 och 36.  
-Ojämna nummer är röda och jämna nummer är svarta.
+Deta roulette hjul ska fungera genom att spelaren
+startar med 1000 kr som dom ska kunna satsa på antigen 100, 300 eller 500 kr och sedan kunna gissa på antigen nummer eller färj.  
+Ojämna nummer är röda och jämna nummer är svarta. Roulette hjulet ska sedan rula ett nummer mellan 1 och 36. Detta nummer ska sen jämföras med spelarens gissning för att se om spelaren vann.
+
 
 <br>
 
-### Problembeskrivning
+## Problembeskrivning
 
-Några delproblem som jag har identifierat är hur
-* man ska kunna välja hur mycket pengar man vill satsa
-* programmet ska rula ett slumpmäsigt tal mellan 1 och 36
-* programmet ska kunna få reda på vilken färj som det har rulats 
-* reglerna ska kunna visas för spelaren
-* programmet ska hantera att kunna ha både svenska och engelska som språk
+Några delproblem som har identifierats till deta program är:   
+Hur spelaren ska kunna välja språk i början av programmet.
+Programmet borde kunna visa regler på hur det funkar för spelare som inte spelat roulette hjul förut.
+Spelaren ska kunna satsa antigen 100, 300 eller 500 kr.
+Spelaren ska inte kunna satsa mer pengar en vad dom har.
+Spelaren ska kunna gissa på antigen nummer eller färg.
+Om spelaren väljer färj ska dom kunna gissa på antigen röd eller svart.
+Om spelaren väljer nummer ska dom kunna gissa på ett nummer mellan 1 och 36.
+Programmet ska rula ett slumpmäsigt nummer mellan 1 och 36.
+Programmet ska räkna ut om det slumpmäsiga talet är jämt eller inte.
+Programmet ska vissa vad det är som rullades för spelaren.
+Programmet ska jämföra om spelaren har gissat korekt.
+Om spelaren gissa korekt ska programmet ge ut den korekta mängden pengar som spelaren ska ha vunit.
+Om spelaren förlora ska programmet ta bort pengarna som spelaren satsade.
+Spelaren ska få veta hur mycket pengar som dom har förlorat/vunit.
+Programet ska kolla om spelaren fortfarande har pengar.
+Spelaren ska få frågan om att fortsäta spela.
 
 <br>
 
-### Antaganden och krav
+## Antaganden och krav
 
-Några krav som jag skälv har märkt för deta roulette hjul är  
-att programmet borde kunna visa regler på hur det funkar för   
-spelare som inte spelat roulette hjul förut.  
-Spelaren borde kunna välja vilket språk som dom vill att spelet   
-ska använda.  
+Några krav som identifierats för detta roulettehjul är:  
+
+### Välja språk mellan svenska och engelska
+Deta är viktigt då det finns många som inte kan svenska och dom borde också kunna köra roulette ljulet.
+
+### Kunna vissa regeler om spelaren vill se
+Denna finns då det är många som inte spelat roulette och rouletter har olika regler så borde kunna visa upp reglerna på roulette ljulet.
+
+### Start kapital ska vara 1000kr
+Spelaren ska alltid ha 1000kr när dom starta programmet.
+
+### Bara kunna satsa på 100, 300 eller 500kr
+Spelaren ska bara kunna välja mellan 100 300 eller 500 kr om dom har tillräkligt med pengar.
+
+### Bara kunna välja mellan färgerna svart och röd
+Svart = jämna tall, Röd = ojämna tall.
+
+### Bara kunna välja nummer mellan 1 och 36
+Roulette ljulet ska bara kunna rulla mellan 1 och 36 så såelaren får bara välja mellan dom talen.
+
+### Rulla ett nummer mellan 1 och 36
+Det rullade nummeret ska vara slumpmäsigt
+
+### Vissa rullningen för spelaren
+Spelaren ska alltid kunna se vad programmet rullade för något slumpmäsigt nummer
+
+### Ändra spelarens pengar beroende på om dom vann eller förlora
+Om spelaren vann med färg ska dom få två gånger satsning.
+Om spelaren vann med nummer ska dom få tio gånger satsning.
+Om spelaren förlora ska dom förlora det dom satsade.
+
+### Sparka ut spelaren om dom har slut på pengar
+Spelaren ska inte få spela om dom har slut på pengar.
+
+### Kunna fortsäta spela rouletten 
+Spelaren ska få fortsäta spela så länge som dom har pengar.
+
 
 <br>
 
-### Lösningsdesign 
+## Lösningsdesign 
 
-Så som jag tänkte med denna uppgift är att jag skulle vilja   
-försöka göra språk delen först då jag nog kommer behöva  
+Så som det var tänkt med denna uppgift är det skulle var bäst att 
+försöka göra språk delen först då det nog kommer behöva  
 skriva ut saker i terminalen till alla andra delar  
 så att fixa språket först känndes viktigast.
 
-För att göra språket känner jag att det skule vara bäst  
-om jag i början av programet deklarerade strängar som jag sedan kan tilldela  
+För att göra språket känndes det som att det skule vara bäst  
+om det i början av programmet deklarerades strängar som sedan kundes tilldelas  
 beroende på vilket språk folk vill ha.
 
-efter språk biten tänker jag det borde vara bäst att fråga om regler så spelaren kan få reglerna på språket som dom föredrar.
+efter språk biten borde det vara bäst att fråga om regler så spelaren kan få reglerna på språket som dom föredrar.
 
-Sedan efter reglerna vill jag att programet ska skriva ut ett välkoms medelande  
+Sedan efter reglerna ska programmet skriva ut ett välkoms medelande  
 efter vilket spel loopen borde börja.  
 
 ![Alt text](image.png)  
@@ -66,50 +108,59 @@ bild på språk och regler design i flödesdiagrammet
 
 I spel loopen borde det börja med att fråga hur mycket pengar man vill satsa  
 då jag tycker man ska sattsa pengarna innan valet av vad man sattsar på.
-Här tycker jag också man borde ha en check för om spelaren har slut på pengar.
+Här borde programemt också ha en check för om spelaren har slut på pengar.
 
-efter att ha tagigt reda på hur mycket pengar spelaren vill sattsa så vill   
-jag ta reda på vad dom vill sattsa på
+Efter att ha tagigt reda på hur mycket pengar spelaren vill sattsa så borde programmet ta reda på vad spelaren vill sattsa på.
 
-så som jag har tänkt mej med gissningen är att spelaren ska får börja med att   
+Så som det är tänkt med gissningen är att spelaren ska får börja med att   
 bestämma om dom vill gissa på färg eller nummer.  
-om spelaren valde färg får dom sedan gissa mellan röd och svart eller om dom valde nummer får dom välja vilket nummer dom vill gissar på. 
+Om spelaren valde färg får dom sedan gissa mellan röd och svart eller om dom valde nummer får dom välja vilket nummer dom vill gissar på. 
 
-Jag tycker spelaren ska också ha tillåtelse att gå tillbaka under gissningen om man klikat fel.
+Spelaren ska också ha tillåtelse att gå tillbaka under gissningen om man klikat fel.
+
+<br>
 
 ![Alt text](image-1.png)  
 bild på start av loopen, valet av satsningar och  valet av gissning
 
-Efter att satsningen och gissningsvalen har hänt tycker jag att programmet borde rulla rouletten.
+Efter att satsningen och gissningsvalen har hänt ska programmet rulla rouletten.
 
-Rulningen borde börjar med att rula ett tal mellan 1 och 36 som sedna skrivs ut  
-Efter att ha skrivit ut rullingen borde programmet kolla om spelaren gissade på nummer eller färg.
+Rulningen borde börjar med att rula ett tal mellan 1 och 36 som sedna skrivs ut.  
+Efter att ha skrivit ut rullingen ska programmet kolla om spelaren gissade på nummer eller färg.
 
-Om spelaren gissade på nummer så borde bara programmet bara behöver jämföra vad splearen gissa på med vad som rullades och om dom är samma så van spelaren.
+Om spelaren gissade på nummer så borde programmet bara behöver jämföra vad spelaren gissa på med vad som rullades och om dom är samma så van spelaren.
 
 Om spelaren gissa på färg så ska programmet kolla om det är ett jämt tal eller inte för att ta reda på färg och sedan kolla om spelaren gissa på korekt färg.
 
-Efter att ha kollat om spelaren van borde programmet skriva ut resultatet och ändra mängden pengar och totala förändringen.
+Efter att ha kollat om spelaren van ska programmet skriva ut resultatet och ändra mängden pengar och totala förändringen.
+
+<br>
 
 ![Alt text](image-2.png)
 ![Alt text](image-3.png)  
 bild på rullning och checkning av resultatet
 
-Efter att ha get resultatet så enligt mig borde spelaren få valet om att köra igen.  
-Om spelaren väljer att köra igen så kommer dom tillbaka till att få välja sattsning.
+Efter att ha get resultatet så borde spelaren få valet om att köra igen.  
+Om spelaren väljer att köra igen så kommer dom tillbaka till att få välja satsning.
+
+<br>
 
 ![Alt text](image-4.png)
 ![Alt text](image-5.png)    
 bild på hela flödesdiagramet
 
-Några svag heter med sättet jag tänk på är att spelaren skule behöva starta om om dom vill kunna byta språk eller undrar något om reglerna.  
-Ett annat problem skule vara att spelaren inte kan gå tillbacka om dom vil ändra hur mycket pengar dom vill sattsa.
+<br>
+
+## Diskussion
+
+Några svagheter med sättet jag tänk på är att spelaren skule behöva starta om om dom vill kunna byta språk eller undrar något om reglerna.  
+Ett annat problem skule vara att spelaren inte kan gå tillbacka om dom vill ändra hur mycket pengar dom vill sattsa.
 
 En styrka med mitt sätt är att man måste välja att satsa på antigen färg eller nummer först vilket betyder att om spelaren vill rösta på nummer så behöver jag bara jämföra nummer och inte bry mej om vilken färg det blev.
 
 <br>
 
-### Problem
+## Problem
 
 Problem som stötes på under programerandet var
 
@@ -123,14 +174,14 @@ så programet kunde korekt skriva ut  å, ä och ö.
 
 * att kombenera strängar med ints då det behövdes för att kunna skriva ut vissa delar som hur mycket man hade att spela för.  
 Problemet löstes genom att importera  
-<.string>  
+<.string>  (ska inte vara en punkt i )
 som innehöll kommandot   
 to_string()   
 vilket tillåter convertering av int till string  
 så när det skule skriva ut hur mycket spelaren hade användes   
 money_amount = "Du har " + to_string(curent_money) + " kr att spela med";
 
-* att kunna stoppa programmet i några sekunder då programet skrev ut mycket information samtidigt så det var svårt att hänga med.   
+* att kunna stoppa programmet i några sekunder då programmet skrev ut mycket information samtidigt så det var svårt att hänga med.   
 Deta löstes genom att använda komandot   
 _sleep()  
 det stoppar programmet i antalet millisekunder som är in skriveret
@@ -142,21 +193,23 @@ Detta gjorde att det blir enklare för spelaren att hänga med i vad som hände 
 * att skriva ut dom korekta variablerna i texten då till en början så skev tillexempel  
 money_amount = "Du har " + to_string(curent_money) + " kr att spela med";  
 att spelaren alltid hade 1000 kr även om curent_money inte var 1000.  
-Problemet låg i att tilldela strängar i början av programet så mängden pengar sattes alltid till det som curent_money var i början villket var 1000.  
+Problemet låg i att tilldela strängar i början av programmet så mängden pengar sattes alltid till det som curent_money var i början villket var 1000.  
 Det löstes genom att tilldela dom spesifika strängarn senare i spel loopen där variabelna hade ändrats.  
-Jag är inte nöjd med denna lösningen då jag skulle föredrat att ha alla språk delar i början av programet men kunde inte hita någon annan lösning.
+Jag är inte nöjd med denna lösningen då jag skulle föredrat att ha alla språk delar i början av programmet men kunde inte hita någon annan lösning.
 
-* att skriva in strängar
+* att om man skriver in strängar i en cin som bara tar int så kommer programmet fasna i en oändlig loop.  
+Deta är ett problem som jag inte lyckats lösa.  
+Har dock hört att det kan finnas ett kommando som checkar efter den typen av bug så man kan skriva ut ett error medelande istället för att programmet fastnar i en oändlig loop.
 
 <br>
 
-### Beskrivning av kod
+## Beskrivning av kod
 
 Början av koden är där variablera sätts och där så delas dom in i tre bitar strängar som används för text, ints för cin och gömda variabler. 
 
-Efter variablera är språk biten villket är en cin med en if satts så spelaren väljer ett språk efter vilket programet använder dom deklarerade variablerna för att säta språket.
+### Språk
 
-En del av språk som exempel
+Efter variablera är språk biten villket är en cin med en if satts så spelaren väljer ett språk efter vilket programet använder dom deklarerade variablerna för att säta språket.
 
     cin >> language;
 
@@ -174,17 +227,22 @@ En del av språk som exempel
             rules_1 = "Denna roulette fungerar på så sätt att du kan bara satsa antingen 100, 300 eller 500 kr i en omgång";
             rules_2 = "du måste sedan välja om du vill satsa på nummer eller färger (jämna nummer räknas som svarta och ojämna nummer räknas som röda)";
         } 
+En del av språk som exempel
+
+### Välkomst och Regler
 
 Nästa del i koden är välkoms biten villket hälsar spelaren välkommen och frågar om regler.
 
 Delen som kommer efter det är början av spel loopen 
 loopen börjar med att visa hur mycket pengar spelaren har och totala förändrigen av pengar.
 
+### Sattsning
+
 Efter vilket hur mycket spelaren vill satsa är.  
 Den biten fungara genom att ha en cin som tar 1, 2 eller 3 för att bestäma hur mycket man vill satsa.  
 Här var det planerat att kolla om spelaren hade slut på pengar men den biten fick bli flyttad till slutet av spel loopen.
 
-Hur koden för satsning av pengar ser ut
+
 
     /*----------------------------*\
     |    tar reda på hur mycket    |
@@ -218,14 +276,15 @@ Hur koden för satsning av pengar ser ut
 
         break;
     }
+Hur koden för satsning av pengar ser ut
+
+### Gissning
 
 Delen som kommer efter är vad spelaren vill sattsa på.  
-Denna bit börjar som den föra med en cin som är om spelaren vill satsa på antigen nummer eller färj.  
-Sedan får spelaren får välja vilket nummer eller färj som dom vill satsa på.   
-Spelaren har också valet att gå tillbacka till nummer eller färj gissningen om dom vill ändra sig. 
-Genom att använda en variabel för om spelaren vill gissa på nummer eller fårj och en för deras gissning så kan jag använda samma variabel till gissningen så choice (varabeln för gissningen) kan vara mellan 1 och 36 om spelaren valde nummer mellen 1 eller 2 om man gissa på färj.
-
-Koden för gissning 
+Denna bit börjar som den föra med en cin som är om spelaren vill satsa på antigen nummer eller färg.  
+Sedan får spelaren får välja vilket nummer eller färg som dom vill satsa på.   
+Spelaren har också valet att gå tillbacka till nummer eller färg gissningen om dom vill ändra sig. 
+Genom att använda en variabel för om spelaren vill gissa på nummer eller färg och en för deras gissning så kan jag använda samma variabel till gissningen så choice (varabeln för gissningen) kan vara mellan 1 och 36 om spelaren valde nummer mellen 1 eller 2 om man gissa på färg. 
 
     /*-------------------------------*\
     |    tar reda på vad för något    |
@@ -271,7 +330,9 @@ Koden för gissning
             continue;
         }
     }
+Koden för gissning
 
+### Rullning
 
 Efter gissningen så är rulningnen av rouletten .  
 Rullningen börjar med randomiseringen av ett nummer mellan 1 och 36.  
@@ -279,11 +340,10 @@ För att see om svaret är svart eller röd så divideras rullningen med 2
 och sedan kollar om svaret är samma som floor(svaret).  
 Deta funkar då floor avrundar tal neråt så om rullningen skule vara 13 skule hälften vara 6,5 som floor sedan skule göra om till 6. Medans om rulningen hade varit jämn hade floor varit samma som hälften av rulningen.  
 Alltså för att se om rullningen är jämt så behöver programet bara kolla om hälften av rulninge är samma som avrundade hälften av rullning.   
-Sednas används true_role för att göra rullninge till int då dubles är svåra tt få till exakta heltal när dom ska skrivas ut.
+Sednas används true_role för att göra rullninge till int då dubles är svåra att få till exakta heltal när dom ska skrivas ut.
 
-Koden för rullning
     /*----------------------------*\
-    |    hur rullandet går till     |
+    |    hur rullandet går till    |
     \*----------------------------*/
     role = rand() % 36 + 1;
 
@@ -312,11 +372,12 @@ Koden för rullning
     }
 
     true_role = floor(role);
+Koden för rullning
+
+### Vinst check
 
 Näst sista biten av koden är för att kolla om spelaren van.  
 Denna biten är flera nästan identiska if satser som kollar om spelaren gissa korekt.
-
-Exempel på hur en av vinst checkarna ser ut
 
     else if (ask_chose == 2 && choice == 2 && color_number == 1){ //om spelaren gissa korekt på färgen svart
         money_change = bet * 2;
@@ -332,11 +393,16 @@ Exempel på hur en av vinst checkarna ser ut
         cout<< win_color << endl;
         _sleep(3000);
     }
+Exempel på hur en av vinst checkarna ser ut
 
-Sista biten av programet är om spelaren vill köra igen och check om spelaren fortfarande har pengar.
+### Fortsätt spela
+
+Sista biten av programet är om spelaren vill köra igen och en check om spelaren fortfarande har pengar.
 Anledninge checken om spelaren har pengar flytades hit är för att annars skule spelaren få valet om att fortsäta spela även om dom inte har några pengar.
 
-### Källkod
+<br>
+
+## Källkod
 
     #include <iostream> 
     #include <string>       //används för att kunna konvertera int till string
