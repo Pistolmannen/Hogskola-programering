@@ -44,6 +44,9 @@ Hur programet ska kolla om spelaren fortfarande har pengar.
 Hur spelaren ska få frågan om att fortsäta spela.
 
 <br>
+<br>
+<br>
+<br>
 
 ## Antaganden och krav
 
@@ -84,10 +87,12 @@ Spelaren ska inte få spela om dom har slut på pengar.
 ### Kunna fortsäta spela rouletten 
 Spelaren ska få fortsäta spela så länge som dom har pengar.
 
-
+<br>
 <br>
 
 ## Lösningsdesign 
+
+### Start av program
 
 Så som det var tänkt med denna uppgift är det skulle var bäst att 
 försöka göra språk delen först då det nog kommer behöva  
@@ -98,13 +103,18 @@ För att göra språket känndes det som att det skule vara bäst
 om det i början av programmet deklarerades strängar som sedan kundes tilldelas  
 beroende på vilket språk folk vill ha.
 
-efter språk biten borde det vara bäst att fråga om regler så spelaren kan få reglerna på språket som dom föredrar.
+Efter språk biten borde det vara bäst att fråga om regler så spelaren kan få reglerna på språket som dom föredrar.
 
-Sedan efter reglerna ska programmet skriva ut ett välkoms medelande  
-efter vilket spel loopen borde börja.  
+Sedan efter reglerna ska programmet skriva ut ett välkoms medelande efter vilket spel loopen borde börja.  
 
 ![Alt text](Roulette_Start.svg)  
 bild på språk och regler design i flödesdiagrammet
+
+<br>
+<br>
+<br>
+
+### Satsning och Gissning
 
 I spel loopen borde det börja med att fråga hur mycket pengar man vill satsa  
 då jag tycker man ska sattsa pengarna innan valet av vad man sattsar på.
@@ -121,7 +131,11 @@ Spelaren ska också ha tillåtelse att gå tillbaka under gissningen om man klik
 <br>
 
 ![Alt text](Roulette_loop_start.svg)  
-bild på start av loopen, valet av satsningar och  valet av gissning
+bild på start av loopen, valet av satsningar och valet av gissning
+
+<br>
+
+### Rullning och vinstcheck
 
 Efter att satsningen och gissningsvalen har hänt ska programmet rulla rouletten.
 
@@ -132,12 +146,14 @@ Om spelaren gissade på nummer så borde programmet bara behöver jämföra vad 
 
 Om spelaren gissa på färg så ska programmet kolla om det är ett jämt tal eller inte för att ta reda på färg och sedan kolla om spelaren gissa på korekt färg.
 
-Efter att ha kollat om spelaren van ska programmet skriva ut resultatet och ändra mängden pengar och totala förändringen.
+Efter att ha kollat om spelaren vann ska programmet skriva ut resultatet och ändra mängden pengar och totala förändringen.
 
 <br>
 
 ![Alt text](Roulette_Role.svg)  
 bild på rullning och checkning av resultatet
+
+### Slutet av Programet
 
 Efter att ha get resultatet så borde spelaren få valet om att köra igen.  
 Om spelaren väljer att köra igen så kommer dom tillbaka till att få välja satsning.
@@ -147,6 +163,14 @@ Om spelaren väljer att köra igen så kommer dom tillbaka till att få välja s
 ![Alt text](Full_Roulette.svg)    
 bild på hela flödesdiagramet
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 
 ## Problem
@@ -191,6 +215,7 @@ Deta är ett problem som jag inte lyckats lösa.
 Har dock hört att det kan finnas ett kommando som checkar efter den typen av bug så man kan skriva ut ett error medelande istället för att programmet fastnar i en oändlig loop.
 
 <br>
+<br>
 
 ## Beskrivning av kod
 
@@ -218,12 +243,21 @@ Efter variablera är språk biten villket är en cin med en if satts så spelare
         } 
 En del av språk som exempel
 
+<br>
+
 ### Välkomst och Regler
 
 Nästa del i koden är välkoms biten villket hälsar spelaren välkommen och frågar om regler.
 
 Delen som kommer efter det är början av spel loopen 
 loopen börjar med att visa hur mycket pengar spelaren har och totala förändrigen av pengar.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Sattsning
 
@@ -266,6 +300,13 @@ Här var det planerat att kolla om spelaren hade slut på pengar men den biten f
         break;
     }
 Hur koden för satsning av pengar ser ut
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ### Gissning
 
@@ -321,6 +362,8 @@ Genom att använda en variabel för om spelaren vill gissa på nummer eller fär
     }
 Koden för gissning
 
+<br>
+
 ### Rullning
 
 Efter gissningen så är rulningnen av rouletten .  
@@ -363,6 +406,8 @@ Sednas används true_role för att göra rullninge till int då dubles är svår
     true_role = floor(role);
 Koden för rullning
 
+<br>
+
 ### Vinst check
 
 Näst sista biten av koden är för att kolla om spelaren van.  
@@ -384,11 +429,17 @@ Denna biten är flera nästan identiska if satser som kollar om spelaren gissa k
     }
 Exempel på hur en av vinst checkarna ser ut
 
+<br>
+
 ### Fortsätt spela
 
 Sista biten av programet är om spelaren vill köra igen och en check om spelaren fortfarande har pengar.
 Anledninge checken om spelaren har pengar flytades hit är för att annars skule spelaren få valet om att fortsäta spela även om dom inte har några pengar.
 
+<br>
+<br>
+<br>
+<br>
 <br>
 
 ## Diskussion
