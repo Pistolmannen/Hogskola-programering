@@ -27,21 +27,21 @@ Ojämna nummer är röda och jämna nummer är svarta. Roulette hjulet ska sedan
 
 Några delproblem som har identifierats till deta program är:   
 Hur spelaren ska kunna välja språk i början av programmet.
-Programmet borde kunna visa regler på hur det funkar för spelare som inte spelat roulette hjul förut.
-Spelaren ska kunna satsa antigen 100, 300 eller 500 kr.
-Spelaren ska inte kunna satsa mer pengar en vad dom har.
-Spelaren ska kunna gissa på antigen nummer eller färg.
-Om spelaren väljer färj ska dom kunna gissa på antigen röd eller svart.
-Om spelaren väljer nummer ska dom kunna gissa på ett nummer mellan 1 och 36.
-Programmet ska rula ett slumpmäsigt nummer mellan 1 och 36.
-Programmet ska räkna ut om det slumpmäsiga talet är jämt eller inte.
-Programmet ska vissa vad det är som rullades för spelaren.
-Programmet ska jämföra om spelaren har gissat korekt.
-Om spelaren gissa korekt ska programmet ge ut den korekta mängden pengar som spelaren ska ha vunit.
-Om spelaren förlora ska programmet ta bort pengarna som spelaren satsade.
-Spelaren ska få veta hur mycket pengar som dom har förlorat/vunit.
-Programet ska kolla om spelaren fortfarande har pengar.
-Spelaren ska få frågan om att fortsäta spela.
+Hur programmet borde kunna visa regler på hur det funkar för spelare som inte spelat roulette hjul förut.
+Hur Spelaren ska kunna satsa antigen 100, 300 eller 500 kr.
+Att Spelaren inte ska kunna satsa mer pengar en vad dom har.
+Hur Spelaren ska kunna gissa på antigen nummer eller färg.
+Att om spelaren väljer färj ska dom bara kunna gissa på antigen röd eller svart.
+Att om spelaren väljer nummer ska dom bara kunna gissa på ett nummer mellan 1 och 36.
+Hur programmet ska rula ett slumpmäsigt nummer mellan 1 och 36.
+Hur programmet ska räkna ut om det slumpmäsiga talet är jämt eller inte.
+Hur programmet ska vissa vad det är som rullades för spelaren.
+Hur Programmet ska jämföra om spelaren har gissat korekt.
+Att om spelaren gissa korekt ska programmet ge ut den korekta mängden pengar som spelaren ska ha vunit.
+Att om spelaren förlora ska programmet ta bort pengarna som spelaren satsade.
+Hur spelaren ska få veta hur mycket pengar som dom har förlorat/vunit.
+Hur programet ska kolla om spelaren fortfarande har pengar.
+Hur spelaren ska få frågan om att fortsäta spela.
 
 <br>
 
@@ -103,7 +103,7 @@ efter språk biten borde det vara bäst att fråga om regler så spelaren kan f�
 Sedan efter reglerna ska programmet skriva ut ett välkoms medelande  
 efter vilket spel loopen borde börja.  
 
-![Alt text](image.png)  
+![Alt text](Roulette_Start.svg)  
 bild på språk och regler design i flödesdiagrammet
 
 I spel loopen borde det börja med att fråga hur mycket pengar man vill satsa  
@@ -120,7 +120,7 @@ Spelaren ska också ha tillåtelse att gå tillbaka under gissningen om man klik
 
 <br>
 
-![Alt text](image-1.png)  
+![Alt text](Roulette_loop_start.svg)  
 bild på start av loopen, valet av satsningar och  valet av gissning
 
 Efter att satsningen och gissningsvalen har hänt ska programmet rulla rouletten.
@@ -136,8 +136,7 @@ Efter att ha kollat om spelaren van ska programmet skriva ut resultatet och änd
 
 <br>
 
-![Alt text](image-2.png)
-![Alt text](image-3.png)  
+![Alt text](Roulette_Role.svg)  
 bild på rullning och checkning av resultatet
 
 Efter att ha get resultatet så borde spelaren få valet om att köra igen.  
@@ -145,18 +144,8 @@ Om spelaren väljer att köra igen så kommer dom tillbaka till att få välja s
 
 <br>
 
-![Alt text](image-4.png)
-![Alt text](image-5.png)    
+![Alt text](Full_Roulette.svg)    
 bild på hela flödesdiagramet
-
-<br>
-
-## Diskussion
-
-Några svagheter med sättet jag tänk på är att spelaren skule behöva starta om om dom vill kunna byta språk eller undrar något om reglerna.  
-Ett annat problem skule vara att spelaren inte kan gå tillbacka om dom vill ändra hur mycket pengar dom vill sattsa.
-
-En styrka med mitt sätt är att man måste välja att satsa på antigen färg eller nummer först vilket betyder att om spelaren vill rösta på nummer så behöver jag bara jämföra nummer och inte bry mej om vilken färg det blev.
 
 <br>
 
@@ -174,7 +163,7 @@ så programet kunde korekt skriva ut  å, ä och ö.
 
 * att kombenera strängar med ints då det behövdes för att kunna skriva ut vissa delar som hur mycket man hade att spela för.  
 Problemet löstes genom att importera  
-<.string>  (ska inte vara en punkt i )
+<.string>  (ska inte vara en punkt i bibloteks namnet)  
 som innehöll kommandot   
 to_string()   
 vilket tillåter convertering av int till string  
@@ -402,12 +391,20 @@ Anledninge checken om spelaren har pengar flytades hit är för att annars skule
 
 <br>
 
+## Diskussion
+
+Några svagheter med hur jag har tänkt mig programmet ska fungera är att spelaren skule behöva starta om om dom vill kunna byta språk eller undrar något om reglerna. Ett annat problem skule vara att spelaren inte kan gå tillbacka om dom vill ändra hur mycket pengar dom vill sattsa.
+
+En styrka med mitt sätt är att spelaren måste välja att satsa på antigen färg eller nummer först vilket betyder att om spelaren vill rösta på nummer så behöver programmet bara jämföra nummer och inte bry sig om vilken färg det blev. En annan styrka med mit program är att det är ganska spelar vänligt då spelaren får själv välja vilket språk dom vill använda och att jag använder sleep så spelaren får ut informationen på ett långasammare sät så dom hinner med. Någgot som jag tycker är en styrka är att jag har nästa all mina strängar i början av koden så skule jag behöva ändra något med språket behöver jag bara ändra i början av programmet för att ändra outputen. 
+
+<br>
+
 ## Källkod
 
     #include <iostream> 
     #include <string>       //används för att kunna konvertera int till string
-    #include <ctime>        //används för att kunna randomisera ett tal
-    #include <Windows.h>  //används för att kunna säta output connsolen till UTF-8
+    #include <ctime>        //används för att kunna slumpa fram ett tal
+    #include <Windows.h>    //används för att kunna säta output connsolen till UTF-8
     using namespace std;
 
     int main()
