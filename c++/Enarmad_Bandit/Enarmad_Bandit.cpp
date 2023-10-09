@@ -4,7 +4,9 @@
 #include <Windows.h>    //används för att kunna sätta output konsollen till UTF-8
 using namespace std;
 
-
+/*------------------------------*\
+|   Globala strängar för språk   |
+\*------------------------------*/ 
 string blank = " ";
 string welcome;
 string invalid_selection;
@@ -17,6 +19,9 @@ string rules_5;
 string rules_6;
 string question_deposit;
 
+/*----------------------------------*\
+|   funktion för att sätta språket   |
+\*----------------------------------*/
 void language_set(int language){
 
     if (language == 1){
@@ -41,6 +46,7 @@ void language_set(int language){
         rules_4 = "Maskinen kommer sedan att rulla ett slumpmässigt mönster med tre symboler på ett tre gånger tre rutnät.";
         rules_5 = "Om det finns minst en rad med tre symboler antingen horisontellt, vertikalt eller diagonalt så vinner spelaren.";
         rules_6 = "En rad = två gånger insats, Tre rader = tre gånger insats, Fem rader = fem gånger insats, Fullt bord = tio gånger insats.";
+        question_deposit = "Vänligen fyll i hur mycket du vill sätta in på spelet (minst 100 kr)";
     }
     else{
         cout<< "how did this happen?????" << endl;
@@ -48,9 +54,12 @@ void language_set(int language){
 
 }
 
+/*--------------------*\
+|   Här startar main   |
+\*--------------------*/
 int main()
 {
-    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleOutputCP(CP_UTF8);      // sätter konsolen till UTF-8
     srand(time(0));
 
     int language;
@@ -60,6 +69,9 @@ int main()
     int total_money;
     int total_money_change;
 
+    /*---------------------------------------------*\
+    |   Tar reda på vilket språk spelaren vill ha   |
+    \*---------------------------------------------*/
     while(true)
     {
         cout<< blank << endl;
@@ -79,6 +91,9 @@ int main()
 
     cout<< welcome << endl;
 
+    /*---------------------------------*\
+    |   Ger valet om att vissa regler   |
+    \*---------------------------------*/
     while (true){
         cout<< blank << endl;
         cout<< question_rules << endl;
@@ -105,6 +120,9 @@ int main()
         }
     }
 
+    /*-----------------------------------------------------*\
+    |   Frågar om hur mycket pengar spelaren vill sätta in  |
+    \*-----------------------------------------------------*/
     while (true){
         cout<< blank << endl;
         cout<< question_deposit << endl;
