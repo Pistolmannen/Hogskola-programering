@@ -6,11 +6,18 @@ using namespace std;
 
 
 string blank = " ";
+string welcome;
 
 void language_set(int language){
 
     if (language == 1){
-        
+        welcome = "Hello and welcome to this slot machine";
+    }
+    else if (language == 2){
+        welcome = "Hej och välkommen till denna enarmade bandit";
+    }
+    else{
+        cout<< "how did this happen?????" << endl;
     }
 
 }
@@ -25,7 +32,7 @@ int main()
     while(true)
     {
         cout<< blank << endl;
-        cout<< "please chose a language" << endl;
+        cout<< "Please chose a language | Snälla välj ett språk" << endl;
         cout<< "1 for english, 2 för svenska" << endl;
         cin>> language; 
 
@@ -33,10 +40,13 @@ int main()
             break;
         } 
         else{
-            cout<< "please try again | snälla försök igen" << endl;
+            cout<< "Please try again | Snälla försök igen" << endl;
         }
     }
     
+    language_set(language);
+
+    cout<< welcome << endl;
 
     
     return 0;
