@@ -128,15 +128,10 @@ int vertical(string board[3][3], int colum, int size_board){
 /*-----------------------------------*\
 |   kollar hur många rader som fins   |
 \*-----------------------------------*/
-int Check_board(string board[3][3]){
+int Check_board(string board[3][3], int size_board){
     int rows = 8;
-    int size_board = sizeof(board)/sizeof(board[0]);
     int left = size_board - 1;
     int right = 0;
-
-    /*-----------------------------------*\
-    |   någonting är fell med board här   |
-    \*-----------------------------------*/
 
     cout<< blank << endl;
     cout<< "this is a test" << endl;
@@ -197,6 +192,7 @@ int main()
     int rows;
 
     string board[3] [3];
+    int size_board; 
     string symbol;
 
     /*---------------------------------------------*\
@@ -347,11 +343,11 @@ int main()
             
         }
         
-
+        size_board = size(board);
         /*-----------------------*\
         |   Slumpar fram brädet   |
         \*-----------------------*/
-        for (int i = 0; i < size(board); i++){
+        for (int i = 0; i < size_board; i++){
             for (int x = 0; x < size(board[i]); x++){
                 symbol = Role_symbols();
                 board[i][x] = symbol;
@@ -367,7 +363,9 @@ int main()
         cout<< board[1][0] + " " + board[1][1] + " " + board[1][2] << endl;
         cout<< board[2][0] + " " + board[2][1] + " " + board[2][2] << endl;
 
-        rows = Check_board(board);
+        
+
+        rows = Check_board(board, size_board);
 
         cout<< blank << endl;
         cout<< rows << endl;
