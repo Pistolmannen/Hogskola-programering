@@ -69,6 +69,9 @@ void language_set(int language, int total_money, int total_money_change, int bet
 
 }
 
+/*-------------------------------------------*\
+|   Funktion för att slumpa fram symbolerna   |
+\*-------------------------------------------*/
 string Role_symbols(){
     int role;
     string answer;
@@ -90,6 +93,89 @@ string Role_symbols(){
     return answer;
 }
 
+/*-----------------------------*\
+|   kollar horisontella rader   |
+\*-----------------------------*/
+int horizontal(string board[3][3], int row, int size_board){
+    int answer = 0;
+
+    for (int i = 0; i < size_board; i++){
+        if (board[row][i] != board[row][i+1]){
+            answer = 1;
+            break;
+        }
+    }
+
+    return answer;
+}
+
+/*--------------------------*\
+|   kollar vertikala rader   |
+\*--------------------------*/
+int vertical(string board[3][3], int colum, int size_board){
+    int answer = 0;
+
+    for (int i = 0; i < size_board; i++){
+        if (board[i][colum] != board[i+1][colum]){
+            answer = 1;
+            break;
+        }
+    }
+
+    return answer;
+}
+
+/*-----------------------------------*\
+|   kollar hur många rader som fins   |
+\*-----------------------------------*/
+int Check_board(string board[3][3]){
+    int rows = 8;
+    int size_board = sizeof(board)/sizeof(board[0]);
+    int left = size_board - 1;
+    int right = 0;
+
+    /*-----------------------------------*\
+    |   någonting är fell med board här   |
+    \*-----------------------------------*/
+
+    cout<< blank << endl;
+    cout<< "this is a test" << endl;
+    cout<< size_board << endl;
+    cout<< left << endl;
+    cout<< right << endl;
+
+
+
+    rows -= horizontal(board, 0, size_board);
+    rows -= horizontal(board, 1, size_board);
+    rows -= horizontal(board, 2, size_board);
+
+    rows -= vertical(board, 0, size_board);
+    rows -= vertical(board, 1, size_board);
+    rows -= vertical(board, 2, size_board);
+
+    for (int i = 0; i < size_board; i++){
+        if (board[i][i] != board[i+1][i+1]){
+            rows -= 1;
+            break;
+        }
+    }
+
+    for (int i = 0; i < size_board; i++){
+        
+        if (board[left][right] != board[left-1][right+1]){
+            rows -= 1;
+            break;
+        }
+        left -= 1;
+        right += 1;
+    }
+
+
+    return rows;
+}
+
+
 /*--------------------*\
 |   Här startar main   |
 \*--------------------*/
@@ -108,6 +194,7 @@ int main()
     int total_money = 0;
     int total_money_change = 0;
     int bet_amount = 0;
+    int rows;
 
     string board[3] [3];
     string symbol;
@@ -279,6 +366,11 @@ int main()
         cout<< board[0][0] + " " + board[0][1] + " " + board[0][2] << endl;
         cout<< board[1][0] + " " + board[1][1] + " " + board[1][2] << endl;
         cout<< board[2][0] + " " + board[2][1] + " " + board[2][2] << endl;
+
+        rows = Check_board(board);
+
+        cout<< blank << endl;
+        cout<< rows << endl;
 
         break;
     }
