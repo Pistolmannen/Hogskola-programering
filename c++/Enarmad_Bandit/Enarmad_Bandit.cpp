@@ -18,11 +18,13 @@ string rules_4;
 string rules_5;
 string rules_6;
 string question_deposit;
+string total_money_text;
+string total_money_change_text;
 
 /*----------------------------------*\
-|   funktion för att sätta språket   |
+|   Funktion för att sätta språket   |
 \*----------------------------------*/
-void language_set(int language){
+void language_set(int language, int total_money, int total_money_change){
 
     if (language == 1){
         invalid_selection = "Not a valid argument, please try again";
@@ -35,6 +37,8 @@ void language_set(int language){
         rules_5 = "If there is at least one row of three symbols either horizontally, vertically or diagonally then the player wins.";
         rules_6 = "One row = two times bet, Three rows = three times bet, Five rows = five times bet, Full board = ten times bet.";
         question_deposit = "please put in how much you wish to deposit in to the game (minimum of 100 kr)";
+        total_money_text = "Your total amount of money to play with is " + to_string(total_money);
+        total_money_change_text = "Your total change in money is " + to_string(total_money_change);
     }
     else if (language == 2){
         invalid_selection = "Inte ett giltigt argument, snälla försök igen";
@@ -87,7 +91,7 @@ int main()
         }
     }
     
-    language_set(language);
+    language_set(language, total_money, total_money_change);
 
     cout<< welcome << endl;
 
@@ -138,9 +142,19 @@ int main()
         }
     }
 
+    /*--------------------------*\
+    |  Starten av spel loopen   |
+    \*--------------------------*/
+    while(true)
+    {
+        cout<< blank << endl;
+        cout<< total_money_text << endl;
+        cout<< total_money_change_text << endl;
 
-    cout<< blank << endl;
-    cout<< total_money << endl;
+        break;
+    }
+    
+
     cout<< "Detta är slutet" << endl;
 
     return 0;

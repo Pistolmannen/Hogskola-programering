@@ -1,5 +1,5 @@
-# Inlämningsuppgift 1
-# Roulette
+# Inlämningsuppgift 2
+# Enarmad bandit
 
 <br>
 
