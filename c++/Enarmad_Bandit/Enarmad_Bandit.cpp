@@ -69,6 +69,27 @@ void language_set(int language, int total_money, int total_money_change, int bet
 
 }
 
+string Role_symbols(){
+    int role;
+    string answer;
+    role = rand() % 3 + 1;
+
+    if (role == 1){
+        answer = "A";
+    }
+    else if (role == 2){
+        answer = "B";
+    }
+    else if (role == 3){
+        answer = "C";
+    }
+    else{
+        cout<< "something is wrong";
+    }
+
+    return answer;
+}
+
 /*--------------------*\
 |   Här startar main   |
 \*--------------------*/
@@ -87,6 +108,9 @@ int main()
     int total_money = 0;
     int total_money_change = 0;
     int bet_amount = 0;
+
+    string board[3] [3];
+    string symbol;
 
     /*---------------------------------------------*\
     |   Tar reda på vilket språk spelaren vill ha   |
@@ -236,6 +260,25 @@ int main()
             
         }
         
+
+        /*-----------------------*\
+        |   Slumpar fram brädet   |
+        \*-----------------------*/
+        for (int i = 0; i < size(board); i++){
+            for (int x = 0; x < size(board[i]); x++){
+                symbol = Role_symbols();
+                board[i][x] = symbol;
+            } 
+        }
+
+
+        /*----------------*\
+        |   Visar brädet   |
+        \*----------------*/
+        cout<< blank << endl;
+        cout<< board[0][0] + " " + board[0][1] + " " + board[0][2] << endl;
+        cout<< board[1][0] + " " + board[1][1] + " " + board[1][2] << endl;
+        cout<< board[2][0] + " " + board[2][1] + " " + board[2][2] << endl;
 
         break;
     }
