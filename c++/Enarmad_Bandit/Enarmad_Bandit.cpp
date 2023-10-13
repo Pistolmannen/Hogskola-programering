@@ -23,11 +23,12 @@ string total_money_change_text;
 string question_bet;
 string not_enough_money;
 string question_start_loop;
+string amount_of_rows;
 
 /*----------------------------------*\
 |   Funktion för att sätta språket   |
 \*----------------------------------*/
-void language_set(int language, int total_money, int total_money_change, int bet_amount){
+void language_set(int language, int total_money, int total_money_change, int bet_amount, int rows){
 
     if (language == 1){
         invalid_selection = "Not a valid argument, please try again";
@@ -45,6 +46,7 @@ void language_set(int language, int total_money, int total_money_change, int bet
         question_bet = "How much do you want to bet this round? (1 for 100, 2 for 300, 3 for 500)";
         not_enough_money = "Not enough money for that bet";
         question_start_loop  = "Are you sure you want to start the game with a bet of " + to_string(bet_amount) + "kr? (1 for yes, 2 for no)";
+        amount_of_rows = "From the board that was rolled there are " + to_string(rows) + " rows of symbols";
     }
     else if (language == 2){
         invalid_selection = "Inte ett giltigt argument, snälla försök igen";
@@ -62,12 +64,110 @@ void language_set(int language, int total_money, int total_money_change, int bet
         question_bet = "Hur mycket vill du satsa den här omgången? (1 för 100, 2 för 300, 3 för 500)";
         not_enough_money = "Inte tillräckligt med pengar för den satsningen";
         question_start_loop  = "Är du säker på att du vill starta spelet med en satsning på " + to_string(bet_amount) + "kr? (1 för ja, 2 för nej)";
+        amount_of_rows = "Från brädet som rullades finns det " + to_string(rows) + " rader av symboler";
     }
     else{
         cout<< "how did this happen?????" << endl;
     }
 
 }
+
+/*-------------------------------------------*\
+|   Funktion för att slumpa fram symbolerna   |
+\*-------------------------------------------*/
+string Role_symbols(){
+    int role;
+    string answer;
+    role = rand() % 3 + 1;
+
+    if (role == 1){
+        answer = "A";
+    }
+    else if (role == 2){
+        answer = "B";
+    }
+    else if (role == 3){
+        answer = "C";
+    }
+    else{
+        cout<< "something is wrong";
+    }
+
+    return answer;
+}
+
+/*-----------------------------*\
+|   kollar horisontella rader   |
+\*-----------------------------*/
+int horizontal(string board[3][3], int row, int size_board){
+    int answer = 0;
+
+    for (int i = 0; i < size_board; i++){
+        if (board[row][i] != board[row][i+1]){
+            answer = 1;
+            break;
+        }
+    }
+
+    return answer;
+}
+
+/*--------------------------*\
+|   kollar vertikala rader   |
+\*--------------------------*/
+int vertical(string board[3][3], int colum, int size_board){
+    int answer = 0;
+
+    for (int i = 0; i < size_board; i++){
+        if (board[i][colum] != board[i+1][colum]){
+            answer = 1;
+            break;
+        }
+    }
+
+    return answer;
+}
+
+/*-----------------------------------*\
+|   kollar hur många rader som fins   |
+\*-----------------------------------*/
+int Check_board(string board[3][3], int true_size_board){
+    int rows = 8;
+    const int size_board = true_size_board - 1;
+    int outer_board = true_size_board - 1;
+    int inner_board = 0;
+    
+
+
+    rows -= horizontal(board, 0, size_board);
+    rows -= horizontal(board, 1, size_board);
+    rows -= horizontal(board, 2, size_board);
+
+    rows -= vertical(board, 0, size_board);
+    rows -= vertical(board, 1, size_board);
+    rows -= vertical(board, 2, size_board);
+
+    for (int i = 0; i < size_board; i++){
+        if (board[i][i] != board[i+1][i+1]){
+            rows -= 1;
+            break;
+        }
+    }
+
+    for (int i = 0; i < size_board; i++){
+        
+        if (board[outer_board][inner_board] != board[outer_board-1][inner_board+1]){
+            rows -= 1;
+            break;
+        }
+        outer_board -= 1;
+        inner_board += 1;
+    }
+
+
+    return rows;
+}
+
 
 /*--------------------*\
 |   Här startar main   |
@@ -83,10 +183,14 @@ int main()
     int bet_choice;
     int start_loop_choice;
     
-
     int total_money = 0;
     int total_money_change = 0;
     int bet_amount = 0;
+
+    string board[3][3];
+    int size_board = size(board); 
+    string symbol;
+    int rows = 0;
 
     /*---------------------------------------------*\
     |   Tar reda på vilket språk spelaren vill ha   |
@@ -107,7 +211,7 @@ int main()
         }
     }
     
-    language_set(language, total_money, total_money_change, bet_amount);
+    language_set(language, total_money, total_money_change, bet_amount, rows);
 
     cout<< welcome << endl;
 
@@ -165,7 +269,7 @@ int main()
     \*--------------------------*/
     while(true)
     {
-        language_set(language, total_money, total_money_change, bet_amount);
+        language_set(language, total_money, total_money_change, bet_amount, rows);
 
         /*-------------------*\
         |   satsnings delen   |
@@ -214,7 +318,7 @@ int main()
             \*----------------------------------*/
             while (true)
             {
-                language_set(language, total_money, total_money_change, bet_amount);
+                language_set(language, total_money, total_money_change, bet_amount, rows);
                 cout<< blank << endl;
                 cout<< question_start_loop << endl;
 
@@ -236,6 +340,35 @@ int main()
             
         }
         
+        
+        /*-----------------------*\
+        |   Slumpar fram brädet   |
+        \*-----------------------*/
+        for (int i = 0; i < size_board; i++){
+            for (int x = 0; x < size(board[i]); x++){
+                symbol = Role_symbols();
+                board[i][x] = symbol;
+            } 
+        }
+
+
+        /*----------------*\
+        |   Visar brädet   |
+        \*----------------*/
+        cout<< blank << endl;
+        cout<< board[0][0] + " " + board[0][1] + " " + board[0][2] << endl;
+        cout<< board[1][0] + " " + board[1][1] + " " + board[1][2] << endl;
+        cout<< board[2][0] + " " + board[2][1] + " " + board[2][2] << endl;
+
+        /*---------------------------------*\
+        |   Hittar mängden rader i brädet   |
+        \*---------------------------------*/
+        rows = Check_board(board, size_board);
+
+        language_set(language, total_money, total_money_change, bet_amount, rows);
+
+        cout<< blank << endl;
+        cout<< amount_of_rows << endl;
 
         break;
     }
