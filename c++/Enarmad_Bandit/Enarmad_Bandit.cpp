@@ -24,11 +24,15 @@ string question_bet;
 string not_enough_money;
 string question_start_loop;
 string amount_of_rows;
+string lose;
+string win;
+string out_of_money;
+string play_again;
 
 /*----------------------------------*\
 |   Funktion för att sätta språket   |
 \*----------------------------------*/
-void language_set(int language, int total_money, int total_money_change, int bet_amount, int rows){
+void language_set(int language, int total_money, int total_money_change, int bet_amount, int rows, int money_change){
 
     if (language == 1){
         invalid_selection = "Not a valid argument, please try again";
@@ -47,6 +51,10 @@ void language_set(int language, int total_money, int total_money_change, int bet
         not_enough_money = "Not enough money for that bet";
         question_start_loop  = "Are you sure you want to start the game with a bet of " + to_string(bet_amount) + "kr? (1 for yes, 2 for no)";
         amount_of_rows = "From the board that was rolled there are " + to_string(rows) + " rows of symbols";
+        lose = "You have lost the game and your bet";
+        win = "You have won the game and your money has increased with " + to_string(money_change);
+        out_of_money = "You have run out of money and have there for been kicked out of the machine";
+        play_again = "Du you want to play again? (1 for yes, 2 for no)";
     }
     else if (language == 2){
         invalid_selection = "Inte ett giltigt argument, snälla försök igen";
@@ -96,9 +104,9 @@ string Role_symbols(){
     return answer;
 }
 
-/*-----------------------------*\
-|   kollar horisontella rader   |
-\*-----------------------------*/
+/*----------------------------------------------*\
+|   Funktion för att kollar horisontella rader   |
+\*----------------------------------------------*/
 int horizontal(string board[3][3], int row, int size_board){
     int answer = 0;
 
@@ -112,9 +120,9 @@ int horizontal(string board[3][3], int row, int size_board){
     return answer;
 }
 
-/*--------------------------*\
-|   kollar vertikala rader   |
-\*--------------------------*/
+/*-------------------------------------------*\
+|   Funktion för att kollar vertikala rader   |
+\*-------------------------------------------*/
 int vertical(string board[3][3], int colum, int size_board){
     int answer = 0;
 
@@ -128,9 +136,9 @@ int vertical(string board[3][3], int colum, int size_board){
     return answer;
 }
 
-/*-----------------------------------*\
-|   kollar hur många rader som fins   |
-\*-----------------------------------*/
+/*----------------------------------------------------*\
+|   Funktion för att kollar hur många rader som fins   |
+\*----------------------------------------------------*/
 int Check_board(string board[3][3], int true_size_board){
     int rows = 8;
     const int size_board = true_size_board - 1;
@@ -147,6 +155,10 @@ int Check_board(string board[3][3], int true_size_board){
     rows -= vertical(board, 1, size_board);
     rows -= vertical(board, 2, size_board);
 
+
+    /*--------------------------*\
+    |   Kollar diagonala rader   |
+    \*--------------------------*/
     for (int i = 0; i < size_board; i++){
         if (board[i][i] != board[i+1][i+1]){
             rows -= 1;
@@ -155,7 +167,6 @@ int Check_board(string board[3][3], int true_size_board){
     }
 
     for (int i = 0; i < size_board; i++){
-        
         if (board[outer_board][inner_board] != board[outer_board-1][inner_board+1]){
             rows -= 1;
             break;
@@ -168,6 +179,14 @@ int Check_board(string board[3][3], int true_size_board){
     return rows;
 }
 
+/*-------------------------------------*\
+|   Funktion för att räkna ut vinsten   |
+\*-------------------------------------*/
+int win_amount(int bet_amount, int modifier){
+    int answer;
+    answer = bet_amount * modifier;
+    return answer;
+}
 
 /*--------------------*\
 |   Här startar main   |
@@ -185,7 +204,9 @@ int main()
     
     int total_money = 0;
     int total_money_change = 0;
+    int money_change = 0;
     int bet_amount = 0;
+    int win_check = 0;
 
     string board[3][3];
     int size_board = size(board); 
@@ -211,7 +232,7 @@ int main()
         }
     }
     
-    language_set(language, total_money, total_money_change, bet_amount, rows);
+    language_set(language, total_money, total_money_change, bet_amount, rows, money_change);
 
     cout<< welcome << endl;
 
@@ -269,10 +290,10 @@ int main()
     \*--------------------------*/
     while(true)
     {
-        language_set(language, total_money, total_money_change, bet_amount, rows);
+        language_set(language, total_money, total_money_change, bet_amount, rows, money_change);
 
         /*-------------------*\
-        |   satsnings delen   |
+        |   Satsnings delen   |
         \*-------------------*/
         while(true)
         {   
@@ -318,7 +339,7 @@ int main()
             \*----------------------------------*/
             while (true)
             {
-                language_set(language, total_money, total_money_change, bet_amount, rows);
+                language_set(language, total_money, total_money_change, bet_amount, rows, money_change);
                 cout<< blank << endl;
                 cout<< question_start_loop << endl;
 
@@ -340,7 +361,6 @@ int main()
             
         }
         
-        
         /*-----------------------*\
         |   Slumpar fram brädet   |
         \*-----------------------*/
@@ -351,7 +371,6 @@ int main()
             } 
         }
 
-
         /*----------------*\
         |   Visar brädet   |
         \*----------------*/
@@ -359,16 +378,72 @@ int main()
         cout<< board[0][0] + " " + board[0][1] + " " + board[0][2] << endl;
         cout<< board[1][0] + " " + board[1][1] + " " + board[1][2] << endl;
         cout<< board[2][0] + " " + board[2][1] + " " + board[2][2] << endl;
+        _sleep(3000);
 
         /*---------------------------------*\
         |   Hittar mängden rader i brädet   |
         \*---------------------------------*/
         rows = Check_board(board, size_board);
 
-        language_set(language, total_money, total_money_change, bet_amount, rows);
+        language_set(language, total_money, total_money_change, bet_amount, rows, money_change);
 
         cout<< blank << endl;
         cout<< amount_of_rows << endl;
+        _sleep(3000);
+
+        cout<< blank << endl;
+        if (rows == 0){
+            total_money -= bet_amount;
+            total_money_change -= bet_amount;
+            win_check = 0;
+        }
+        else if (rows > 0 && rows < 3){
+            money_change = win_amount(bet_amount, 2);
+            total_money += money_change;
+            total_money_change += money_change;
+            win_check = 1;
+        }
+        else if (rows >= 3 && rows < 5){
+            money_change = win_amount(bet_amount, 3);
+            total_money += money_change;
+            total_money_change += money_change;
+            win_check = 1;
+        }
+        else if (rows >= 5 && rows < 8){
+            money_change = win_amount(bet_amount, 5);
+            total_money += money_change;
+            total_money_change += money_change;
+            win_check = 1;
+        }
+        else if (rows == 8){
+            money_change = win_amount(bet_amount, 10);
+            total_money += money_change;
+            total_money_change += money_change;
+            win_check = 1;
+        }
+
+        language_set(language, total_money, total_money_change, bet_amount, rows, money_change);
+
+        if (win_check == 1){
+            cout<< win << endl;
+        }
+        else if (win_check == 0){
+            cout<< lose << endl;
+        }
+
+        if (total_money < 100){
+            cout<< blank << endl;
+            cout<< out_of_money << endl;
+            break;
+        }
+
+        cout<< blank << endl;
+        cout<< total_money_text << endl;
+        cout<< total_money_change_text << endl;
+        _sleep(3000);
+
+        cout<< blank << endl;
+        cout<< play_again << endl;
 
         break;
     }
