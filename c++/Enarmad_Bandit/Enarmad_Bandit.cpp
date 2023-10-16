@@ -186,6 +186,16 @@ int win_amount(int bet_amount, int modifier){
     return answer;
 }
 
+/*----------------------------------------------------------*\
+|   Funktion för att checka och fixa cin om något går fell   |
+\*----------------------------------------------------------*/
+void in_check(){
+    if (cin.fail()){
+        cin.clear();
+        cin.ignore(256, '\n');
+    }
+}
+
 /*--------------------*\
 |   Här startar main   |
 \*--------------------*/
@@ -220,7 +230,9 @@ int main()
         cout<< blank << endl;
         cout<< "Please chose a language | Snälla välj ett språk" << endl;
         cout<< "1 for english, 2 för svenska" << endl;
+
         cin>> language; 
+        in_check();
 
         if (language == 1 || language == 2){
             break;
@@ -243,6 +255,7 @@ int main()
         cout<< question_rules << endl;
 
         cin >> rules_choice;
+        in_check();
 
         if (rules_choice == 1){
             cout<< blank << endl;
@@ -273,6 +286,7 @@ int main()
         cout<< question_deposit << endl;
 
         cin >> deposit_choice;
+        in_check();
 
         if (deposit_choice < 100){
             cout<< invalid_selection << endl;
@@ -308,6 +322,7 @@ int main()
             cout<< question_bet << endl;
 
             cin >> bet_choice;
+            in_check();
 
             if (bet_choice == 1){
                 bet_amount = 100;
@@ -343,6 +358,7 @@ int main()
                 cout<< question_start_loop << endl;
 
                 cin >> start_loop_choice;
+                in_check();
 
                 if (start_loop_choice == 1 || start_loop_choice == 2){
                     break;
@@ -456,6 +472,7 @@ int main()
             cout<< play_again << endl;
 
             cin>> keep_playing;
+            in_check();
 
             if (keep_playing == 1 || keep_playing == 2){
                 break;
