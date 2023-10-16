@@ -86,3 +86,14 @@ Spelaren ska inte få spela om den har slut på pengar.
 Spelaren ska få fortsätta spela så länge som den har pengar.
 
 <br>
+
+## Problem
+
+Problem som stöttes på under programmerandet var
+
+* att skicka med en matris i en funktion
+
+* att skicka strängar i en int cin.
+Problemet vara att om man skrev stränga i en cin som bara tog int hamnade programmet i en oändlig loop så man behövde starta om.
+
+
