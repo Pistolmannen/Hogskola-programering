@@ -45,15 +45,15 @@ void language_set(int language, int total_money, int total_money_change, int bet
         rules_5 = "If there is at least one row of three symbols either horizontally, vertically or diagonally then the player wins.";
         rules_6 = "One row = two times bet, Three rows = three times bet, Five rows = five times bet, Full board = ten times bet.";
         question_deposit = "Please put in how much you wish to deposit in to the game (minimum of 100 kr)";
-        total_money_text = "Your total amount of money to play with is " + to_string(total_money);
-        total_money_change_text = "Your total change in money is " + to_string(total_money_change);
+        total_money_text = "Your total amount of money to play with is " + to_string(total_money) + " kr";
+        total_money_change_text = "Your total change in money is " + to_string(total_money_change) + " kr";
         question_bet = "How much do you want to bet this round? (1 for 100, 2 for 300, 3 for 500)";
         not_enough_money = "Not enough money for that bet";
-        question_start_loop  = "Are you sure you want to start the game with a bet of " + to_string(bet_amount) + "kr? (1 for yes, 2 for no)";
+        question_start_loop  = "Are you sure you want to start the game with a bet of " + to_string(bet_amount) + " kr? (1 for yes, 2 for no)";
         amount_of_rows = "From the board that was rolled there are " + to_string(rows) + " rows of symbols";
         lose = "You have lost the game and your bet";
-        win = "You have won the game and your money has increased with " + to_string(money_change);
-        out_of_money = "You have run out of money and have there for been kicked out of the machine";
+        win = "You have won the game and your money has increased with " + to_string(money_change) + " kr";
+        out_of_money = "You have run out of money and have therefore been kicked out of the game";
         play_again = "Du you want to play again? (1 for yes, 2 for no)";
     }
     else if (language == 2){
@@ -67,15 +67,16 @@ void language_set(int language, int total_money, int total_money_change, int bet
         rules_5 = "Om det finns minst en rad med tre symboler antingen horisontellt, vertikalt eller diagonalt så vinner spelaren.";
         rules_6 = "En rad = två gånger insats, Tre rader = tre gånger insats, Fem rader = fem gånger insats, Fullt bord = tio gånger insats.";
         question_deposit = "Vänligen fyll i hur mycket du vill sätta in på spelet (minst 100 kr)";
-        total_money_text = "Din totala summa pengar att spela med är " + to_string(total_money);
-        total_money_change_text = "Din totala förändring i pengar är " + to_string(total_money_change);
+        total_money_text = "Din totala summa pengar att spela med är " + to_string(total_money) + " kr";
+        total_money_change_text = "Din totala förändring i pengar är " + to_string(total_money_change) + " kr";
         question_bet = "Hur mycket vill du satsa den här omgången? (1 för 100, 2 för 300, 3 för 500)";
         not_enough_money = "Inte tillräckligt med pengar för den satsningen";
-        question_start_loop  = "Är du säker på att du vill starta spelet med en satsning på " + to_string(bet_amount) + "kr? (1 för ja, 2 för nej)";
+        question_start_loop  = "Är du säker på att du vill starta spelet med en satsning på " + to_string(bet_amount) + " kr? (1 för ja, 2 för nej)";
         amount_of_rows = "Från brädet som rullades finns det " + to_string(rows) + " rader av symboler";
-    }
-    else{
-        cout<< "how did this happen?????" << endl;
+        lose = "Du har förlorat spelet och din insats";
+        win = "Du har vunnit spelet och dina pengar har ökat med " + to_string(money_change) + " kr";
+        out_of_money = "Du har slut på pengar och har därför blivit utslängd ur spelet";
+        play_again = "Vill du spela igen? (1 för ja, 2 för nej)";
     }
 
 }
@@ -96,9 +97,6 @@ string Role_symbols(){
     }
     else if (role == 3){
         answer = "C";
-    }
-    else{
-        cout<< "something is wrong";
     }
 
     return answer;
@@ -207,6 +205,7 @@ int main()
     int money_change = 0;
     int bet_amount = 0;
     int win_check = 0;
+    int keep_playing = 0;
 
     string board[3][3];
     int size_board = size(board); 
@@ -391,6 +390,9 @@ int main()
         cout<< amount_of_rows << endl;
         _sleep(3000);
 
+        /*------------------------------------------------*\
+        |   Har spelaren vunnit och i så fall hur mycket   |
+        \*------------------------------------------------*/
         cout<< blank << endl;
         if (rows == 0){
             total_money -= bet_amount;
@@ -431,6 +433,9 @@ int main()
             cout<< lose << endl;
         }
 
+        /*--------------------------------------------------------*\
+        |   Om spelaren har pengar nog att kunna fortsätta spela   |
+        \*--------------------------------------------------------*/
         if (total_money < 100){
             cout<< blank << endl;
             cout<< out_of_money << endl;
@@ -442,14 +447,34 @@ int main()
         cout<< total_money_change_text << endl;
         _sleep(3000);
 
-        cout<< blank << endl;
-        cout<< play_again << endl;
+        /*------------------------------------*\
+        |   Om spelaren vill fortsätta spela   |
+        \*------------------------------------*/
+        while (true)
+        {
+            cout<< blank << endl;
+            cout<< play_again << endl;
 
-        break;
+            cin>> keep_playing;
+
+            if (keep_playing == 1 || keep_playing == 2){
+                break;
+            }
+            else{
+                cout<< invalid_selection << endl;
+            }
+        }
+        
+        if (keep_playing == 1){
+            continue;      
+        }
+        else{
+            cout<< blank << endl;
+            cout<< total_money_change_text << endl;
+            break;
+        }
+
     }
-    
-
-    cout<< "Detta är slutet" << endl;
 
     return 0;
 }
