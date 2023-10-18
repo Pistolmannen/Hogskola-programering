@@ -86,3 +86,31 @@ Spelaren ska inte få spela om den har slut på pengar.
 Spelaren ska få fortsätta spela så länge som den har pengar.
 
 <br>
+
+## Problem
+
+Problem som stöttes på under programmerandet var
+
+* att skicka med en matris i en funktion.  
+Detta problem var att spel brädet skulle skickas in i en funktion för att läsa mängden raden den hade men matrisen som skickades till funktion ville inte helt fungera som vanligt då kommandon som size() inte fungerade längre.  
+Det jag kom till at märka var att när matrisen skickades till funktion var det inte matrisen skälv som skickades utan en pekare till matrisen vilket gjorde att kommandon som size() inte fungerade längre då dom bara fungera på matrisen skälv.  
+Problemet löstes genom att göra size() utanför funktionen och sedan skick med storleken som en separat variabel i funktionen.
+
+* att skicka strängar i en int cin.  
+Problemet vara att om man skrev stränga i en cin som bara tog int hamnade programmet i en oändlig loop så man behövde starta om.  
+Problemet löstes genom funktionen
+
+        void cin_check(){
+            if (cin.fail()){
+                cin.clear();
+                cin.ignore(256, '\n');
+            }
+        }
+
+    Det funktionen gör är att börja med att kolla om cin har misslyckats (fåt en string när den bara kan ta int) genom cin.fail().  
+    Om cin är misslyckad så tar programmet och stoppar cin från att fortsätta använda det som har skickats in genom cin.clear().  
+    Efter att ha stoppat cin från att fortsätta använda det som skickat in används cin.ignore(256, '\n') för att säja till cin att ignorera det strängar som redan är i cin.  
+    Ett problem med lösningen är att om man skulle skriva exempel 100hejdettaärtest skulle programmet ta det som 100 och sedan skicka in resten av inputen i nästa cin som kommer då få ett fel medelande. Det händer dock bara om man skriver in siffror i början av inputen annars kommer programmet slänga bort hela inputen.
+
+
+
