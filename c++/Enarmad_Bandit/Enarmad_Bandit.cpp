@@ -143,8 +143,6 @@ int Check_board(string board[3][3], int true_size_board){
     int outer_board = true_size_board - 1;
     int inner_board = 0;
     
-
-
     rows -= horizontal(board, 0, size_board);
     rows -= horizontal(board, 1, size_board);
     rows -= horizontal(board, 2, size_board);
@@ -152,7 +150,6 @@ int Check_board(string board[3][3], int true_size_board){
     rows -= vertical(board, 0, size_board);
     rows -= vertical(board, 1, size_board);
     rows -= vertical(board, 2, size_board);
-
 
     /*--------------------------*\
     |   Kollar diagonala rader   |
@@ -173,7 +170,6 @@ int Check_board(string board[3][3], int true_size_board){
         inner_board += 1;
     }
 
-
     return rows;
 }
 
@@ -189,7 +185,7 @@ int win_amount(int bet_amount, int modifier){
 /*----------------------------------------------------------*\
 |   Funktion för att checka och fixa cin om något går fell   |
 \*----------------------------------------------------------*/
-void in_check(){
+void cin_check(){
     if (cin.fail()){
         cin.clear();
         cin.ignore(256, '\n');
@@ -232,7 +228,7 @@ int main()
         cout<< "1 for english, 2 för svenska" << endl;
 
         cin>> language; 
-        in_check();
+        cin_check();
 
         if (language == 1 || language == 2){
             break;
@@ -255,7 +251,7 @@ int main()
         cout<< question_rules << endl;
 
         cin >> rules_choice;
-        in_check();
+        cin_check();
 
         if (rules_choice == 1){
             cout<< blank << endl;
@@ -286,7 +282,7 @@ int main()
         cout<< question_deposit << endl;
 
         cin >> deposit_choice;
-        in_check();
+        cin_check();
 
         if (deposit_choice < 100){
             cout<< invalid_selection << endl;
@@ -322,7 +318,7 @@ int main()
             cout<< question_bet << endl;
 
             cin >> bet_choice;
-            in_check();
+            cin_check();
 
             if (bet_choice == 1){
                 bet_amount = 100;
@@ -358,7 +354,7 @@ int main()
                 cout<< question_start_loop << endl;
 
                 cin >> start_loop_choice;
-                in_check();
+                cin_check();
 
                 if (start_loop_choice == 1 || start_loop_choice == 2){
                     break;
@@ -472,7 +468,7 @@ int main()
             cout<< play_again << endl;
 
             cin>> keep_playing;
-            in_check();
+            cin_check();
 
             if (keep_playing == 1 || keep_playing == 2){
                 break;
