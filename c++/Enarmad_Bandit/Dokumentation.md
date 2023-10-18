@@ -87,6 +87,84 @@ Spelaren ska få fortsätta spela så länge som den har pengar.
 
 <br>
 
+## Lösningsdesign 
+
+### Start av programmet 
+
+Så som det var tänkt med denna uppgift är det skulle var bäst att 
+försöka göra språk delen först då det nog kommer behöva  
+skriva ut saker i terminalen till alla andra delar  
+så att fixa språket först kändes viktigast.
+
+För att göra språket skulle det nog vara bäst att sätta språk delen i en funktion så om någon del av språk skulle behövas uppdatera under spelets gång kan programmet bara köra funktionen.
+
+Efter språk ska spelaren få valet om regler då spelaren nog vill kunna ha reglerna innan spelet startar. 
+
+Delen efter regler ska vara hur mycket pengar spelaren vill sätta in på spelet då det behöver att man har sat in några pengar innan det går att köra spelet.
+
+<br>
+
+![Alt text](Enarmad_bandit_start.svg)  
+bild på språk, regler och insättning designen
+
+<br>
+
+### Satsning och slumping
+
+När spelaren har valt in insättning så ska spel loopen börja. 
+I spel loopen ska det börja med att vissa mängden pengar spelaren har och fråga hur mycket pengar spelaren vill satsa dena rundan.
+
+Spelaren har också valet om dom vill börja om satsningen om dom satsat fel.
+
+Om satsningen är klar ska programmet börja med att rulla fram brädet.  
+Rullningen av brädet var tänkt att vara en funktion som slumpmässigt ger alla position på brädet en av tre olika strängar.
+
+Efter att brädet har rullats fram ska det vissas för spelaren.
+
+<br>
+
+![Alt text](Enarmad_bandit_gissning_och_brade.svg)  
+bild på satsning och slumpanden av brädet designen
+
+<br>
+
+### Antalet rader och vinst
+
+När programmet har visat det framrullade brädet för spelaren ska den sedan börja undersöka hur många rader det fins på brädet.  
+Detta var tänka att hända i en funktion som går igenom alla typer av rader det kan ha blivit.
+
+Efter att ha hitat hur många rader som det fins på brädet ska programmet ge utt korrekt vinst till spelaren (om spelaren van).  
+Detta skulle häls göras i en funktion som tar in hur mycket spelaren satsade och hur mycket det ska ändras med.
+
+<br>
+
+![Alt text](Enarmad_bandit_rader_och_vinst.svg)  
+bild på hitta rader och vinst designen
+
+<br>
+
+### Slutet av programmet
+
+Efter att ha räknat ut vinsten/förlusten ska programmet kolla om spelaren ha pengar kvar att spel för.
+
+Har spelaren pengar kvar ska spelaren få valet om den vill fortsätta spel vilket tar den tillbaka till början av spel loopen om den säjer ja.
+
+<br>
+
+![Alt text](Enarmad_bandit_slut.svg)  
+bild på slutet i flödesdiagrammet
+
+<br>
+
+### Hela flödesdiagrammet
+
+<br>
+
+![Alt text](Enarmad_bandit.svg)  
+bild på hela flödesdiagrammet
+
+<br>
+
 ## Problem
 
 Problem som stöttes på under programmerandet var
