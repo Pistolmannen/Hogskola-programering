@@ -200,12 +200,14 @@ int main()
     SetConsoleOutputCP(CP_UTF8);      // sätter konsolen till UTF-8
     srand(time(0));
 
+    // variabler för val i programmet
     int language;
     int rules_choice;
     int deposit_choice;
     int bet_choice;
     int start_loop_choice;
     
+    // variabler för pengar och vinst
     int total_money = 0;
     int total_money_change = 0;
     int money_change = 0;
@@ -213,6 +215,7 @@ int main()
     int win_check = 0;
     int keep_playing = 0;
 
+    // variabler för brädet
     string board[3][3];
     int size_board = size(board); 
     string symbol;
@@ -475,6 +478,7 @@ int main()
             }
             else{
                 cout<< invalid_selection << endl;
+                _sleep(1000);
             }
         }
         
