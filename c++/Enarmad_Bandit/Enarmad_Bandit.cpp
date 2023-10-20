@@ -410,41 +410,36 @@ int main()
         \*------------------------------------------------*/
         cout<< blank << endl;
         if (rows == 0){
-            total_money -= bet_amount;
-            total_money_change -= bet_amount;
+            money_change = win_amount(bet_amount, 1);
             win_check = 0;
         }
         else if (rows > 0 && rows < 3){
             money_change = win_amount(bet_amount, 2);
-            total_money += money_change;
-            total_money_change += money_change;
             win_check = 1;
         }
         else if (rows >= 3 && rows < 5){
             money_change = win_amount(bet_amount, 3);
-            total_money += money_change;
-            total_money_change += money_change;
             win_check = 1;
         }
         else if (rows >= 5 && rows < 8){
             money_change = win_amount(bet_amount, 5);
-            total_money += money_change;
-            total_money_change += money_change;
             win_check = 1;
         }
         else if (rows == 8){
             money_change = win_amount(bet_amount, 10);
-            total_money += money_change;
-            total_money_change += money_change;
             win_check = 1;
         }
 
-        language_set(language, total_money, total_money_change, bet_amount, rows, money_change);
-
         if (win_check == 1){
+            total_money += money_change;
+            total_money_change += money_change;
+            language_set(language, total_money, total_money_change, bet_amount, rows, money_change);
             cout<< win << endl;
         }
         else if (win_check == 0){
+            total_money -= money_change;
+            total_money_change -= money_change;
+            language_set(language, total_money, total_money_change, bet_amount, rows, money_change);
             cout<< lose << endl;
         }
 

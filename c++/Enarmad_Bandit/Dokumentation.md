@@ -316,7 +316,7 @@ Funktionen för slumpande av symboler
 För att programmet ska kunna hitta mängden rader i brädet används funktionen Check_board som tar emot brädet och storleken av brädet och ger sedan tillbaka mängden rader i brädet.
 
 Check_board går igenom alla möjliga sät rader kan formas på för att see hur många rader det fins.
-För att göra detta använder Check_board funktionerna horizontal och vertical vilket går igenom vertikal och horisontella rader.
+För att göra detta använder Check_board funktionerna horizontal och vertical vilket går igenom vertikala och horisontella rader.
 Check_board har också två for loopar för att kolla diagonala rader.  
 Check_board räknar baklänges så börjar på det högsta mängden rader (8) och för varje gång den inte hittar en rad minskar den talet med 1.
 
@@ -389,4 +389,10 @@ Hur funktionen horizontal ser ut
     }
 Hur funktionen vertical ser ut
 
+<br>
+
+### Vinst 
+
+När programmet har hitat antalet rader så ska det räkna ut hur mycket spelaren har vunnit.  
+Detta görs genom en if sats som går igenom hur mycket en spelare ska få 
 
