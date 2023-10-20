@@ -439,4 +439,8 @@ Om spelaren väljer att sluta så får dom ut hur mycket pengar dom har nu och h
 
 <br>
 
-### discution
+### Diskussion
+
+Några svagheter med mit program är att alla mina strängar för text är satta som globala variabler. Det gör att dom är en säkerhets riks för minnes hantering men vet inte helt hur jag skulle kunna gör om dom till lokala variabler då flera funktioner behöver dom.
+
+En styrkor med mit program är hur programmet rullar fram brädet då det skulle kunna fungera för hur storlek av matris man än har men även att det är en ganska liten kod så den tar inte upp mycket minne. En annan styrka med mit program är hur programmet hittar rader i brädet då hela den biten är i en funktion som ganska effektivt hittar antalet rader i brädet.
