@@ -28,6 +28,8 @@ string lose;
 string win;
 string out_of_money;
 string play_again;
+string total_money_end;
+string total_money_change_end;
 
 /*----------------------------------*\
 |   Funktion för att sätta språket   |
@@ -55,6 +57,8 @@ void language_set(int language, int total_money, int total_money_change, int bet
         win = "You have won the game and your money has increased with " + to_string(money_change) + " kr";
         out_of_money = "You have run out of money and have therefore been kicked out of the game";
         play_again = "Du you want to play again? (1 for yes, 2 for no)";
+        total_money_end = "The slot machine has given you " + to_string(total_money) + " kr";
+        total_money_change_end = "Your change in money from what you began with is " + to_string(total_money_change) + " kr";
     }
     else if (language == 2){
         invalid_selection = "Inte ett giltigt argument, snälla försök igen";
@@ -77,6 +81,8 @@ void language_set(int language, int total_money, int total_money_change, int bet
         win = "Du har vunnit spelet och dina pengar har ökat med " + to_string(money_change) + " kr";
         out_of_money = "Du har slut på pengar och har därför blivit utslängd ur spelet";
         play_again = "Vill du spela igen? (1 för ja, 2 för nej)";
+        total_money_end = "Spelautomaten har gett dig " + to_string(total_money) + " kr";
+        total_money_change_end = "Din förändring i pengar från vad du började med är " + to_string(total_money_change) + " kr";
     }
 
 }
@@ -410,7 +416,7 @@ int main()
         \*------------------------------------------------*/
         cout<< blank << endl;
         if (rows == 0){
-            money_change = win_amount(bet_amount, 1);
+            money_change = win_amount(bet_amount, -1);
             win_check = 0;
         }
         else if (rows > 0 && rows < 3){
@@ -430,16 +436,14 @@ int main()
             win_check = 1;
         }
 
+        total_money += money_change;
+        total_money_change += money_change;
+        language_set(language, total_money, total_money_change, bet_amount, rows, money_change);
+
         if (win_check == 1){
-            total_money += money_change;
-            total_money_change += money_change;
-            language_set(language, total_money, total_money_change, bet_amount, rows, money_change);
             cout<< win << endl;
         }
         else if (win_check == 0){
-            total_money -= money_change;
-            total_money_change -= money_change;
-            language_set(language, total_money, total_money_change, bet_amount, rows, money_change);
             cout<< lose << endl;
         }
 
@@ -482,7 +486,9 @@ int main()
         }
         else{
             cout<< blank << endl;
-            cout<< total_money_change_text << endl;
+            cout<< total_money_end << endl;
+            cout<< total_money_change_end << endl;
+            cout<< blank << endl;
             break;
         }
 

@@ -391,8 +391,52 @@ Hur funktionen vertical ser ut
 
 <br>
 
-### Vinst 
+### Vinst check
 
-När programmet har hitat antalet rader så ska det räkna ut hur mycket spelaren har vunnit.  
-Detta görs genom en if sats som går igenom hur mycket en spelare ska få 
+När programmet har hitat antalet rader så ska det räkna ut hur mycket spelaren har vunnit eller förlorat.  
+Detta görs genom en if sats som går igenom hur mycket en spelare ska få beroende på hur många rader som rullades.
+När programmet vet hur mycket den ska öka med skickas det med i en funktion som heter win_amount.  
+win_amount tar emot hur mycket spelaren satsade och med hur mycket den ska öka och ger då tillbaka hur mycket programmet ska ändra spelarens pengar med.
 
+    if (rows == 0){
+        money_change = win_amount(bet_amount, -1);
+        win_check = 0;
+    }
+    else if (rows > 0 && rows < 3){
+        money_change = win_amount(bet_amount, 2);
+        win_check = 1;
+    }
+    else if (rows >= 3 && rows < 5){
+        money_change = win_amount(bet_amount, 3);
+        win_check = 1;
+    }
+    else if (rows >= 5 && rows < 8){
+        money_change = win_amount(bet_amount, 5);
+        win_check = 1;
+    }
+    else if (rows == 8){
+        money_change = win_amount(bet_amount, 10);
+        win_check = 1;
+    }
+Hur if satsen för vinst ser ut
+
+<br>
+
+    int win_amount(int bet_amount, int modifier){
+        int answer;
+        answer = bet_amount * modifier;
+        return answer;
+    }
+Hur win_amount ser ut
+
+<br>
+
+### Slutet
+
+Det sista som är i programmet är en check om spelaren fortfarande har pengar och frågan om spelaren vill fortsätta.
+Vill spelaren fortsätta så kommer dom tillbaka till satsning biten.
+Om spelaren väljer att sluta så får dom ut hur mycket pengar dom har nu och hur mycket det ändra sig ifrån det dom satte in.
+
+<br>
+
+### discution
