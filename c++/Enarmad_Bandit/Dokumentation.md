@@ -190,5 +190,253 @@ Problemet löstes genom funktionen
     Efter att ha stoppat cin från att fortsätta använda det som skickat in används cin.ignore(256, '\n') för att säja till cin att ignorera det strängar som redan är i cin.  
     Ett problem med lösningen är att om man skulle skriva exempel 100hejdettaärtest skulle programmet ta det som 100 och sedan skicka in resten av inputen i nästa cin som kommer då få ett fel medelande. Det händer dock bara om man skriver in siffror i början av inputen annars kommer programmet slänga bort hela inputen.
 
+<br>
 
+## Beskrivning av kod
 
+### Start av programmet
+
+Början av koden är vart jag skapar språk som globala variabler.  
+Detta görs då språk används av flera funktioner så språk variablerna fick bli globala.  
+
+Efter dom globala variablerna skapas fler funktioner som kommer tas upp om när dom används.
+
+I början av main är vart konsol språket sätts och slump generatorn startars.  
+Den är sedan följd av några lokala variabler för programmet.
+
+<br>
+
+### Språk
+
+Delen efter skapandet av variablerna är språk.  
+Språk börjar med att fråga vad spelaren vill ha för språk vilket sedan blir skickat till en språk funktion som sedna sätter språket.  
+Språk funktion tar emot många variabler men den viktigaste (language) är vilket språk spelaren vill ha.
+
+    void language_set(int language, int total_money){
+        if (language == 1){
+            invalid_selection = "Not a valid argument, please try again";
+            welcome = "Hello and welcome to this slot machine";
+            question_rules = "Do you want to see the rules? (1 for yes, 2 for no)";
+            total_money_text = "Your total amount of money to play with is " + to_string(total_money) + " kr";
+        }
+        else if (language == 2){
+            invalid_selection = "Inte ett giltigt argument, snälla försök igen";
+            welcome = "Hej och välkommen till denna enarmade bandit";
+            question_rules = "Vill du see reglerna? (1 för ja, 2 för nej)";
+            total_money_text = "Din totala summa pengar att spela med är " + to_string(total_money) + " kr";
+        }
+    }
+En del av språk för exempel
+
+<br>
+
+### Regler och insättning
+
+Följt av språk är Regel biten.
+Regler är en cin som frågar om spelaren vill se regalerna och visar dom om spelaren vill see
+
+Efter regler är insättning vilket är en cin som tar alla tal över 100 som spelarens start summa.
+
+När programmet är klar med insättning så starta spel loopen.
+
+<br>
+
+### Satsning 
+
+Första biten i spel loopen är satsning.   
+Satsning fungerar genom att ta 1, 2 eller 3 (100, 300 och 500 respektive) för att bestämma hur mycket spelaren vill satsa.  
+Fins också en check för om spelaren har pengar för sin satsning.
+
+Satsning delen slutar med en fråga om spelaren är säker på om dom vill börja med den satsningen som dom valt och svar dom nej här går dom tillbaka till början av satsning.
+
+    cout<< blank << endl;
+    cout<< total_money_text << endl;
+    cout<< total_money_change_text << endl;
+    _sleep(3000);
+
+    cout<< blank << endl;
+    cout<< question_bet << endl;
+
+    cin >> bet_choice;
+    cin_check();
+
+    if (bet_choice == 1){
+        bet_amount = 100;
+    }
+    else if (bet_choice == 2){
+        bet_amount = 300;
+    }
+    else if (bet_choice == 3){
+        bet_amount = 500;
+    }
+Exempel på satsning
+
+<br>
+
+### Rullandet av brädet
+
+När spelaren är säker på sin  satsning så börjar programmet med att rulla brädet.  
+Detta sker i en for loop som går igenom alla platser i brädet och kör en funktion på dom som ger en slumpmässig symbol.
+
+Slutet av rullningen är också där programmet visar brädet för spelaren.
+
+    for (int i = 0; i < size_board; i++){
+        for (int x = 0; x < size(board[i]); x++){
+            symbol = Role_symbols();
+            board[i][x] = symbol;
+        } 
+    }
+For loopen för rullandet av brädet
+
+<br>
+
+    string Role_symbols(){
+        int role;
+        string answer;
+        role = rand() % 3 + 1;
+
+        if (role == 1){
+            answer = "A";
+        }
+        else if (role == 2){
+            answer = "B";
+        }
+        else if (role == 3){
+            answer = "C";
+        }
+
+        return answer;
+    }
+Funktionen för slumpande av symboler
+
+<br>
+
+### Hitta rader
+
+För att programmet ska kunna hitta mängden rader i brädet används funktionen Check_board som tar emot brädet och storleken av brädet och ger sedan tillbaka mängden rader i brädet.
+
+Check_board går igenom alla möjliga sät rader kan formas på för att see hur många rader det fins.
+För att göra detta använder Check_board funktionerna horizontal och vertical vilket går igenom vertikala och horisontella rader.
+Check_board har också två for loopar för att kolla diagonala rader.  
+Check_board räknar baklänges så börjar på det högsta mängden rader (8) och för varje gång den inte hittar en rad minskar den talet med 1.
+
+    int Check_board(string board[3][3], int true_size_board){
+        int rows = 8;
+        const int size_board = true_size_board - 1;
+        int outer_board = true_size_board - 1;
+        int inner_board = 0;
+        
+        rows -= horizontal(board, 0, size_board);
+        rows -= horizontal(board, 1, size_board);
+        rows -= horizontal(board, 2, size_board);
+
+        rows -= vertical(board, 0, size_board);
+        rows -= vertical(board, 1, size_board);
+        rows -= vertical(board, 2, size_board);
+
+        /*--------------------------*\
+        |   Kollar diagonala rader   |
+        \*--------------------------*/
+        for (int i = 0; i < size_board; i++){
+            if (board[i][i] != board[i+1][i+1]){
+                rows -= 1;
+                break;
+            }
+        }
+
+        for (int i = 0; i < size_board; i++){
+            if (board[outer_board][inner_board] != board[outer_board-1][inner_board+1]){
+                rows -= 1;
+                break;
+            }
+            outer_board -= 1;
+            inner_board += 1;
+        }
+
+        return rows;
+    }
+Hur Check_board ser ut
+
+<br>
+
+    int horizontal(string board[3][3], int row, int size_board){
+        int answer = 0;
+
+        for (int i = 0; i < size_board; i++){
+            if (board[row][i] != board[row][i+1]){
+                answer = 1;
+                break;
+            }
+        }
+
+        return answer;
+    }
+Hur funktionen horizontal ser ut
+
+<br>
+
+    int vertical(string board[3][3], int colum, int size_board){
+        int answer = 0;
+
+        for (int i = 0; i < size_board; i++){
+            if (board[i][colum] != board[i+1][colum]){
+                answer = 1;
+                break;
+            }
+        }
+
+        return answer;
+    }
+Hur funktionen vertical ser ut
+
+<br>
+
+### Vinst check
+
+När programmet har hitat antalet rader så ska det räkna ut hur mycket spelaren har vunnit eller förlorat.  
+Detta görs genom en if sats som går igenom hur mycket en spelare ska få beroende på hur många rader som rullades.
+När programmet vet hur mycket den ska öka med skickas det med i en funktion som heter win_amount.  
+win_amount tar emot hur mycket spelaren satsade och med hur mycket den ska öka och ger då tillbaka hur mycket programmet ska ändra spelarens pengar med.
+
+    if (rows == 0){
+        money_change = win_amount(bet_amount, -1);
+        win_check = 0;
+    }
+    else if (rows > 0 && rows < 3){
+        money_change = win_amount(bet_amount, 2);
+        win_check = 1;
+    }
+    else if (rows >= 3 && rows < 5){
+        money_change = win_amount(bet_amount, 3);
+        win_check = 1;
+    }
+    else if (rows >= 5 && rows < 8){
+        money_change = win_amount(bet_amount, 5);
+        win_check = 1;
+    }
+    else if (rows == 8){
+        money_change = win_amount(bet_amount, 10);
+        win_check = 1;
+    }
+Hur if satsen för vinst ser ut
+
+<br>
+
+    int win_amount(int bet_amount, int modifier){
+        int answer;
+        answer = bet_amount * modifier;
+        return answer;
+    }
+Hur win_amount ser ut
+
+<br>
+
+### Slutet
+
+Det sista som är i programmet är en check om spelaren fortfarande har pengar och frågan om spelaren vill fortsätta.
+Vill spelaren fortsätta så kommer dom tillbaka till satsning biten.
+Om spelaren väljer att sluta så får dom ut hur mycket pengar dom har nu och hur mycket det ändra sig ifrån det dom satte in.
+
+<br>
+
+### discution
