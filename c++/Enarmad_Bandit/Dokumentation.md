@@ -26,6 +26,9 @@ Formas det fem rader får spelaren fem gånger insatsen.
 Spelaren ska endast få satsa med 100, 300 eller 500 kr. 
 
 <br>
+<br>
+<br>
+<br>
 
 ## Problembeskrivning
 
@@ -119,9 +122,7 @@ Spelaren ska få fortsätta spela så länge som den har pengar.
 ### Start av programmet 
 
 Så som det var tänkt med denna uppgift är det skulle var bäst att 
-försöka göra språk delen först då det nog kommer behöva  
-skriva ut saker i terminalen till alla andra delar  
-så att fixa språket först kändes viktigast.
+försöka göra språk delen först då det nog kommer behöva skriva ut saker i terminalen till alla andra delar så att fixa språket först kändes viktigast.
 
 För att göra språket skulle det nog vara bäst att sätta språk delen i en funktion så om någon del av språk skulle behövas uppdatera under spelets gång kan programmet bara köra funktionen.
 
@@ -141,7 +142,7 @@ bild på språk, regler och insättning designen
 När spelaren har valt in insättning så ska spel loopen börja. 
 I spel loopen ska det börja med att vissa mängden pengar spelaren har och fråga hur mycket pengar spelaren vill satsa dena rundan.
 
-Spelaren har också valet om dom vill börja om satsningen om dom satsat fel.
+Spelaren har också valet att börja om satsningen om dom satsat fel.
 
 Om satsningen är klar ska programmet börja med att rulla fram brädet.  
 Rullningen av brädet var tänkt att vara en funktion som slumpmässigt ger alla position på brädet en av tre olika strängar.
@@ -182,6 +183,17 @@ Har spelaren pengar kvar ska spelaren få valet om den vill fortsätta spel vilk
 bild på slutet i flödesdiagrammet
 
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 ### Hela flödesdiagrammet
 
@@ -200,6 +212,17 @@ Problem som stöttes på under programmerandet var
 Detta problem var att spel brädet skulle skickas in i en funktion för att läsa mängden raden den hade men matrisen som skickades till funktion ville inte helt fungera som vanligt då kommandon som size() inte fungerade längre.  
 Det jag kom till at märka var att när matrisen skickades till funktion var det inte matrisen skälv som skickades utan en pekare till matrisen vilket gjorde att kommandon som size() inte fungerade längre då dom bara fungera på matrisen skälv.  
 Problemet löstes genom att göra size() utanför funktionen och sedan skick med storleken som en separat variabel i funktionen.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 * att skicka strängar i en int cin.  
 Problemet vara att om man skrev stränga i en cin som bara tog int hamnade programmet i en oändlig loop så man behövde starta om.  
@@ -276,6 +299,12 @@ Fins också en check för om spelaren har pengar för sin satsning.
 
 Satsning delen slutar med en fråga om spelaren är säker på om dom vill börja med den satsningen som dom valt och svar dom nej här går dom tillbaka till början av satsning.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+
     cout<< blank << endl;
     cout<< total_money_text << endl;
     cout<< total_money_change_text << endl;
@@ -313,8 +342,11 @@ Slutet av rullningen är också där programmet visar brädet för spelaren.
             board[i][x] = symbol;
         } 
     }
-For loopen för rullandet av brädet
+loopen för rullandet av brädet
 
+<br>
+<br>
+<br>
 <br>
 
     string Role_symbols(){
@@ -346,6 +378,8 @@ Check_board går igenom alla möjliga sät rader kan formas på för att see hur
 För att göra detta använder Check_board funktionerna horizontal och vertical vilket går igenom vertikala och horisontella rader.
 Check_board har också två for loopar för att kolla diagonala rader.  
 Check_board räknar baklänges så börjar på det högsta mängden rader (8) och för varje gång den inte hittar en rad minskar den talet med 1.
+
+<br>
 
     int Check_board(string board[3][3], int true_size_board){
         int rows = 8;
@@ -398,8 +432,10 @@ Hur Check_board ser ut
 
         return answer;
     }
-Hur funktionen horizontal ser ut
+Funktionen horizontal
 
+<br>
+<br>
 <br>
 
     int vertical(string board[3][3], int colum, int size_board){
@@ -414,9 +450,7 @@ Hur funktionen horizontal ser ut
 
         return answer;
     }
-Hur funktionen vertical ser ut
-
-<br>
+Funktionen vertical
 
 ### Vinst check
 
@@ -473,6 +507,21 @@ En annan svaghet med mit program är hur jag har gjort min matris då från vad 
 Sättet som brädet är visat för spelaren fungerar men är ganska dåligt och borde kunna göras mycket bättre.
 
 En styrkor med mit program är hur programmet rullar fram brädet då det skulle kunna fungera för hur storlek av matris man än har men även att det är en ganska liten kod så den tar inte upp mycket minne. En annan styrka med mit program är hur programmet hittar rader i brädet då hela den biten är i en funktion som ganska effektivt hittar antalet rader i brädet.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 ## Källkod
 
