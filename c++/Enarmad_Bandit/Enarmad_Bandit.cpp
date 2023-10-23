@@ -45,7 +45,7 @@ void language_set(int language, int total_money, int total_money_change, int bet
         rules_3 = "Then the player gets to deciding how much to bet on a round. (100, 300 or 500 kr)";
         rules_4 = "The machine will then roll a random pattern with three symbols on a three by three grid.";
         rules_5 = "If there is at least one row of three symbols either horizontally, vertically or diagonally then the player wins.";
-        rules_6 = "One row = two times bet, Three rows = three times bet, Five rows = five times bet, Full board = ten times bet.";
+        rules_6 = "One row = two times bet, Three rows = three times bet, Five rows = five times bet, Full board = ten times bet. (anything in between defaults down)";
         question_deposit = "Please put in how much you wish to deposit in to the game (minimum of 100 kr)";
         total_money_text = "Your total amount of money to play with is " + to_string(total_money) + " kr";
         total_money_change_text = "Your total change in money is " + to_string(total_money_change) + " kr";
@@ -69,7 +69,7 @@ void language_set(int language, int total_money, int total_money_change, int bet
         rules_3 = "Sedan får spelaren bestämma hur mycket den ska satsa på en runda. (100, 300 eller 500 kr)";
         rules_4 = "Maskinen kommer sedan att rulla ett slumpmässigt mönster med tre symboler på ett tre gånger tre rutnät.";
         rules_5 = "Om det finns minst en rad med tre symboler antingen horisontellt, vertikalt eller diagonalt så vinner spelaren.";
-        rules_6 = "En rad = två gånger insats, Tre rader = tre gånger insats, Fem rader = fem gånger insats, Fullt bord = tio gånger insats.";
+        rules_6 = "En rad = två gånger insats, Tre rader = tre gånger insats, Fem rader = fem gånger insats, Fullt bord = tio gånger insats. (allt emellan sänks till standard)";
         question_deposit = "Vänligen fyll i hur mycket du vill sätta in på spelet (minst 100 kr)";
         total_money_text = "Din totala summa pengar att spela med är " + to_string(total_money) + " kr";
         total_money_change_text = "Din totala förändring i pengar är " + to_string(total_money_change) + " kr";
