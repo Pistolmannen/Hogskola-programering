@@ -19,11 +19,11 @@ Uppgiften går ut på att skapa spelet enarmad bandit.
 Enarmad bandit går ut på att stopa snurrande cylindrar så symbolerna på cylindrarna hamnar i rader.  
 Raderna kan vara horisontella, vertikala eller diagonala.  
 Denna version av enarmad bandit använder inte cylindrar utan istället slumpar mellan tre olika symboler i nio rutor som liger i ett tre gånger tre nät.  
-Om dom symbolerna formar en rad så får spelaren en två gånger sin insats.  
-Finns det tre rader får spelaren tre gånger insatsen.  
-Formas det fem rader får spelaren fem gånger insatsen.  
+Om samma symboler formar en rad så får spelaren två gånger sin insats.  
+Finns det tre rader med samma symbol får spelaren tre gånger insatsen.  
+Formas det fem rader med samma symbol får spelaren fem gånger insatsen.  
 Är alla rutor samma symbol får spelaren tio gånger insatsen.  
-Spelaren ska endast få satsa med 100, 300 eller 500 kr. 
+Spelaren ska endast kunna satsa med 100, 300 eller 500 kr. 
 
 <br>
 <br>
@@ -35,42 +35,42 @@ Spelaren ska endast få satsa med 100, 300 eller 500 kr.
 Några delproblem som har identifierats till detta program är: 
 
 ### Spelaren ska kunna välja språk i början av programmet 
-Spelaren får välja mellan svenska och engelska genom att skriva en 1 eller 2.
+Spelaren får välja mellan engelska och svenska genom att skriva 1 = engelska eller 2 = svenska.
 
 ### Programmet borde kunna visa regler på hur det funkar för spelare som inte spelat enarmad bandit förut 
 Spelaren får en fråga om att visa regler och spelaren får svara med 1 eller 2. 
 
 ### Hur mycket pengar spelaren ska börja med.  
-Spelaren får välja skälv hur mycket den vill seta in i spelet men det måste vara minst 100 kr då det är det minimala en spelare få gissa på i spelet.
+Spelaren får välja skälv hur mycket den vill sätta in i spelet men det måste vara minst 100 kr då det är det minsta en spelare få gissa på i spelet.
 
-### Kunna vissa hur mycket pengar spelaren har.   
-Programmet ska kunna vissa hur mycket pengar spelaren har just nu och hur mycket deras pengar har ändrat sig ifrån det som dom satte in.
+### Kunna visa hur mycket pengar spelaren har.   
+Programmet ska kunna visa hur mycket pengar spelaren har just nu och hur mycket deras pengar har ändrat sig ifrån det som sattes in.
 
 ### Hur spelaren ska kunna gissa 
-Spelaren ska få valet att gissa på 100, 300 eller 500 kr under varje omgång genom att skriva 1, 2 eller 3 om dom har pengar frö sin gissning.
+Spelaren ska få valet att gissa på 100, 300 eller 500 kr under varje omgång genom att skriva 1 = 100, 2 = 300 eller 3 = 500 om spelaren har pengar kvar för sin gissning.
 
-### Skapa ett tre gånger tre bräde
-Skapandet av brädet görs genom att i början av koden skapa en lista som innehåller tre andra listor som alla har tre tomma värden i sig.
+### Skapa ett tre gånger tre spelplanen
+Skapandet av spelplanen görs genom att i början av koden skapa en lista som innehåller tre andra listor som alla har tre tomma värden i sig.
 
-### Kunna slumpa nio stycken symboler till brädet. 
-slumpandet av brädet sker i en loop som går igenom alla plates och ger ut en av tre olika symboler till varje.
+### Kunna slumpa nio stycken symboler till spelplanen. 
+slumpandet av spelplanen sker i en loop som går igenom alla plates och ger ut en av tre olika symboler till varje.
 
-### Vissa brädet på ett snyggt sät till spelaren.  
-Programmet skriver ut varje plats i brädet för sig med ett litet mellanrum mellan symbolerna.
+### Visa spelplanen på ett snyggt sätt till spelaren.  
+Programmet skriver ut varje plats i spelplanen för sig med ett litet mellanrum mellan symbolerna.
 
-### Hur programmet ska kunna hitta rader i brädet.  
-Programmet går igenom alla olika sät rader kan formas i brädet och kolar var och en för att se om det fins en rad där.
+### Hur programmet ska kunna hitta rader i spelplanen.  
+Programmet går igenom alla olika sätt rader kan formas i spelplanen och kollar var och en för att se om det finns en rad där.
 
-### Räkna ut hur många rader det fins.  
-Programmet börjar på max antal rader det kan finnas i brädet och för varje gång den inte hittar en rad i brädet så minskar den antalet rader med en tills programmet har gåt igenom alla olika rader.
+### Räkna ut hur många rader det finns.  
+Programmet börjar på max antal rader det kan finnas i spelplanen och för varje gång den inte hittar en rad i spelplanen så minskar den antalet rader med en tills programmet har gått igenom alla olika rader.
 
-### Hur mycket pengar spelaren van eller förlora.  
-Om det fans några rader alls så van spelaren annars så förlorar spelaren sin satsning.  
-Beroende på hur många rader som fins i brädet så ökar spelaren satsning olika mycket så desto mer rader i brädet desto mer vinner spelaren.
+### Hur mycket pengar spelaren vann eller förlorade.  
+Om det fanns några rader alls så vann spelaren annars så förlorar spelaren sin satsning.  
+Beroende på hur många rader som finns i spelplanen så ökar spelaren satsning olika mycket så desto mer rader i spelplanen desto mer vinner spelaren.
 
 ### Hur spelaren ska kunna köra igen.
-Spelaren får ett val om dom vill fortsätta spela och frå svara med 1 eller 2.  
-Svarar spelaren ja kommer dom tillbaka till satsning annars slutar spelet och dom får veta hur mycket deras pengar ändrats från vad dom satte in.
+Spelaren får ett val om spelaren vill fortsätta spela och får svara med 1 = ja eller 2 = nej.  
+Svarar spelaren ja kommer spelaren tillbaka till satsning annars slutar spelet och spelaren får veta hur mycket spelarens pengar ändrats från vad spelaren satte in.
 
 <br>
 
@@ -79,16 +79,16 @@ Svarar spelaren ja kommer dom tillbaka till satsning annars slutar spelet och do
 Några krav som identifierats för denna enarmade bandit är:  
 
 ### Välja språk mellan svenska och engelska
-Språkval är viktigt då det finns många som inte kan svenska och dom borde också kunna köra roulettehjulet.
+Språkval är viktigt då det finns många som inte kan svenska och dom borde också kunna köra enarmad bandit.
 
 ### Kunna visa regler om spelaren önskar det
-Många har inte spelat roulette och olika rouletter har olika regler så borde kunna visa upp reglerna på roulettehjulet.
+Många har inte spelat enarmad bandit och olika enarmad banditer har olika regler så borde kunna visa upp reglerna på enarmad bandit.
 
-### Välja Start kapital 
-Spelaren ska få välja hur mycket pengar dom säter in på spelet.
+### Välja start kapital 
+Spelaren ska få välja hur mycket pengar spelaren sätter in på spelet.
 
 ### Bara kunna satsa på 100, 300 eller 500kr
-Spelaren ska bara kunna välja mellan 100, 300 eller 500 kr om dom har tillräckligt med pengar.
+Spelaren ska bara kunna välja mellan 100, 300 eller 500 kr om spelaren har tillräckligt med pengar.
 
 ### Bestämma när spelet startar
 Spelaren ska få bestämma när spelet ska starta.
@@ -97,7 +97,7 @@ Spelaren ska få bestämma när spelet ska starta.
 Spelet ska bestå av nio ruter i ett tre gånger tre rutnät.
 
 ### Tre stycken olika symboler
-Spelet ska ha tre olika symboler som ska kunna hamna i dom nio rutorna.
+Spelet ska ha tre olika symboler som ska kunna hamna i de nio rutorna.
 
 ### Slumpmässigt rullning
 Symbolerna i rutnätet ska alla vara slumpmässigt framtagna.
@@ -107,10 +107,12 @@ Om spelet rulla en rad ska spelaren få två gånger satsning.
 Om spelet rulla tre rader ska spelaren få tre gånger satsning.  
 Om spelet rulla fem rader ska spelaren få fem gånger satsning.  
 Om spelet rulla alla rutor samma ska spelaren få tio gånger satsning.  
-Om spelet inte rulla någon rad ska spelaren förlora det dom satsade.
+Om spelet inte får någon rad med samma rutor ska spelaren förlora det spelaren satsade.
 
-### Sparka ut spelaren om den har slut på pengar
+### Avsluta spelet om spelaren har slut på pengar
 Spelaren ska inte få spela om den har slut på pengar.
+
+<br>
 
 ### Kunna fortsätta spela rouletten  
 Spelaren ska få fortsätta spela så länge som den har pengar.
@@ -122,13 +124,13 @@ Spelaren ska få fortsätta spela så länge som den har pengar.
 ### Start av programmet 
 
 Så som det var tänkt med denna uppgift är det skulle var bäst att 
-försöka göra språk delen först då det nog kommer behöva skriva ut saker i terminalen till alla andra delar så att fixa språket först kändes viktigast.
+försöka göra språk delen först då det troligen kommer behöva skriva ut saker i terminalen till alla andra delar så att fixa språket först kändes viktigast.
 
-För att göra språket skulle det nog vara bäst att sätta språk delen i en funktion så om någon del av språk skulle behövas uppdatera under spelets gång kan programmet bara köra funktionen.
+För att göra språket skulle det vara bäst att sätta språk delen i en funktion så om någon del av språk skulle behövas uppdatera under spelets gång kan programmet bara köra funktionen.
 
-Efter språk ska spelaren få valet om regler då spelaren nog vill kunna ha reglerna innan spelet startar. 
+Efter språk ska spelaren få valet om regler då spelaren förmodligen skulle vill kunna ha reglerna innan spelet startar då den här typen av spel skiljer sig åt. 
 
-Delen efter regler ska vara hur mycket pengar spelaren vill sätta in på spelet då det behöver att man har sat in några pengar innan det går att köra spelet.
+Valet efter regler ska vara hur mycket pengar spelaren vill sätta in på spelet då det behöver att man har satt in pengar innan det går att köra spelet.
 
 <br>
 
@@ -137,32 +139,32 @@ bild på språk, regler och insättning designen
 
 <br>
 
-### Satsning och slumping
+### Satsning och slumpning
 
-När spelaren har valt in insättning så ska spel loopen börja. 
-I spel loopen ska det börja med att vissa mängden pengar spelaren har och fråga hur mycket pengar spelaren vill satsa dena rundan.
+När spelaren har valt in insättning ska spel-loopen börja. 
+I spel-loopen ska det börja med att vissa mängden pengar spelaren har och fråga hur mycket pengar spelaren vill satsa dena rundan.
 
-Spelaren har också valet att börja om satsningen om dom satsat fel.
+Spelaren har också valet att börja om satsningen om spelaren satsat fel.
 
-Om satsningen är klar ska programmet börja med att rulla fram brädet.  
-Rullningen av brädet var tänkt att vara en funktion som slumpmässigt ger alla position på brädet en av tre olika strängar.
+Om satsningen är klar ska programmet börja med att rulla fram spelplanen.  
+Rullningen av spelplanen var tänkt som en funktion som slumpmässigt ger alla position på spelplanen en av tre olika strängar.
 
-Efter att brädet har rullats fram ska det vissas för spelaren.
+Efter att spelplanen har rullats fram ska det vissas för spelaren.
 
 <br>
 
 ![Alt text](Enarmad_bandit_gissning_och_brade.svg)  
-bild på satsning och slumpanden av brädet designen
+bild på satsning och slumpanden av spelplanen designen
 
 <br>
 
 ### Antalet rader och vinst
 
-När programmet har visat det framrullade brädet för spelaren ska den sedan börja undersöka hur många rader det fins på brädet.  
+När programmet har visat det framrullade spelplanen för spelaren ska den sedan börja undersöka hur många rader det finns på spelplanen.  
 Detta var tänka att hända i en funktion som går igenom alla typer av rader det kan ha blivit.
 
-Efter att ha hitat hur många rader som det fins på brädet ska programmet ge utt korrekt vinst till spelaren (om spelaren van).  
-Detta skulle häls göras i en funktion som tar in hur mycket spelaren satsade och hur mycket det ska ändras med.
+Efter att ha hittat hur många rader som det finns på spelplanen ska programmet ge ut korrekt vinst till spelaren (om spelaren vann).  
+Detta skulle helst göras i en funktion som tar in hur mycket spelaren satsade och hur mycket det ska ändras med.
 
 <br>
 
@@ -175,7 +177,7 @@ bild på hitta rader och vinst designen
 
 Efter att ha räknat ut vinsten/förlusten ska programmet kolla om spelaren ha pengar kvar att spel för.
 
-Har spelaren pengar kvar ska spelaren få valet om den vill fortsätta spel vilket tar den tillbaka till början av spel loopen om den säjer ja.
+Har spelaren pengar kvar ska spelaren få valet om den vill fortsätta spela vilket tar den tillbaka till början av spel-loopen om spelaren väljer ja.
 
 <br>
 
@@ -209,9 +211,9 @@ bild på hela flödesdiagrammet
 Problem som stöttes på under programmerandet var
 
 * att skicka med en matris i en funktion.  
-Detta problem var att spel brädet skulle skickas in i en funktion för att läsa mängden raden den hade men matrisen som skickades till funktion ville inte helt fungera som vanligt då kommandon som size() inte fungerade längre.  
-Det jag kom till at märka var att när matrisen skickades till funktion var det inte matrisen skälv som skickades utan en pekare till matrisen vilket gjorde att kommandon som size() inte fungerade längre då dom bara fungera på matrisen skälv.  
-Problemet löstes genom att göra size() utanför funktionen och sedan skick med storleken som en separat variabel i funktionen.
+Detta problem var att spelplanen skulle skickas in i en funktion för att läsa mängden rader den hade men matrisen som skickades till funktion ville inte fungera som vanligt då kommandon som size() inte fungerade längre.  
+Det jag noterade var att när matrisen skickades till funktion var det inte matrisen själv som skickades utan en pekare till matrisen vilket gjorde att kommandon som size() inte fungerade längre då dom bara fungera på matrisen själv.  
+Problemet löstes genom att göra size() utanför funktionen och sedan skicka med storleken som en separat variabel i funktionen.
 
 <br>
 <br>
@@ -225,7 +227,7 @@ Problemet löstes genom att göra size() utanför funktionen och sedan skick med
 <br>
 
 * att skicka strängar i en int cin.  
-Problemet vara att om man skrev stränga i en cin som bara tog int hamnade programmet i en oändlig loop så man behövde starta om.  
+Problemet vara att om man skrev strängar i en cin som bara tog int hamnade programmet i en oändlig loop så man behövde starta om.  
 Problemet löstes genom funktionen
 
         void cin_check(){
@@ -235,9 +237,9 @@ Problemet löstes genom funktionen
             }
         }
 
-    Det funktionen gör är att börja med att kolla om cin har misslyckats (fåt en string när den bara kan ta int) genom cin.fail().  
+    Det funktionen gör är att börja med att kolla om cin har misslyckats (fått en string när den bara kan ta int) genom cin.fail().  
     Om cin är misslyckad så tar programmet och stoppar cin från att fortsätta använda det som har skickats in genom cin.clear().  
-    Efter att ha stoppat cin från att fortsätta använda det som skickat in används cin.ignore(256, '\n') för att säja till cin att ignorera det strängar som redan är i cin.  
+    Efter att ha stoppat cin från att fortsätta använda det som skickat in används cin.ignore(256, '\n') för att säga till cin att ignorera det strängar som redan är i cin.  
     Ett problem med lösningen är att om man skulle skriva exempel 100hejdettaärtest skulle programmet ta det som 100 och sedan skicka in resten av inputen i nästa cin som kommer då få ett fel medelande. Det händer dock bara om man skriver in siffror i början av inputen annars kommer programmet slänga bort hela inputen.
 
 <br>
@@ -282,22 +284,22 @@ En del av språk för exempel
 
 ### Regler och insättning
 
-Följt av språk är Regel biten.
-Regler är en cin som frågar om spelaren vill se regalerna och visar dom om spelaren vill see
+Följt av språk är Regelbiten.
+Regler är en cin som frågar om spelaren vill se reglerna och visar dom om spelaren vill see.
 
 Efter regler är insättning vilket är en cin som tar alla tal över 100 som spelarens start summa.
 
-När programmet är klar med insättning så starta spel loopen.
+När programmet är klart med insättning så starta spel-loopen.
 
 <br>
 
 ### Satsning 
 
-Första biten i spel loopen är satsning.   
+Första biten i spel-loopen är satsning.   
 Satsning fungerar genom att ta 1, 2 eller 3 (100, 300 och 500 respektive) för att bestämma hur mycket spelaren vill satsa.  
-Fins också en check för om spelaren har pengar för sin satsning.
+Finns också en check för om spelaren har pengar för sin satsning.
 
-Satsning delen slutar med en fråga om spelaren är säker på om dom vill börja med den satsningen som dom valt och svar dom nej här går dom tillbaka till början av satsning.
+Satsning delen slutar med en fråga om spelaren är säker på om spelaren vill börja med den satsningen som spelaren valt och svar spelaren nej här går spelaren tillbaka till början av satsning.
 
 <br>
 <br>
@@ -329,12 +331,12 @@ Exempel på satsning
 
 <br>
 
-### Rullandet av brädet
+### Rullandet av spelplanen
 
-När spelaren är säker på sin  satsning så börjar programmet med att rulla brädet.  
-Detta sker i en for loop som går igenom alla platser i brädet och kör en funktion på dom som ger en slumpmässig symbol.
+När spelaren är säker på sin satsning så börjar programmet med att rulla spelplanen.  
+Detta sker i en *for* loop som går igenom alla platser i spelplanen och kör en funktion på dom som ger en slumpmässig symbol.
 
-Slutet av rullningen är också där programmet visar brädet för spelaren.
+Slutet av rullningen är också där programmet visar spelplanen för spelaren.
 
     for (int i = 0; i < size_board; i++){
         for (int x = 0; x < size(board[i]); x++){
@@ -342,7 +344,7 @@ Slutet av rullningen är också där programmet visar brädet för spelaren.
             board[i][x] = symbol;
         } 
     }
-loopen för rullandet av brädet
+loopen för rullandet av spelplanen
 
 <br>
 <br>
@@ -372,11 +374,11 @@ Funktionen för slumpande av symboler
 
 ### Hitta rader
 
-För att programmet ska kunna hitta mängden rader i brädet används funktionen Check_board som tar emot brädet och storleken av brädet och ger sedan tillbaka mängden rader i brädet.
+För att programmet ska kunna hitta mängden rader i spelplanen används funktionen Check_board som tar emot spelplanen och storleken av spelplanen och ger sedan tillbaka mängden rader i spelplanen.
 
-Check_board går igenom alla möjliga sät rader kan formas på för att see hur många rader det fins.
+Check_board går igenom alla möjliga sätt rader kan formas på för att see hur många rader det finns.
 För att göra detta använder Check_board funktionerna horizontal och vertical vilket går igenom vertikala och horisontella rader.
-Check_board har också två for loopar för att kolla diagonala rader.  
+Check_board har också två *for* loopar för att kolla diagonala rader.  
 Check_board räknar baklänges så börjar på det högsta mängden rader (8) och för varje gång den inte hittar en rad minskar den talet med 1.
 
 <br>
@@ -455,7 +457,7 @@ Funktionen vertical
 ### Vinst check
 
 När programmet har hitat antalet rader så ska det räkna ut hur mycket spelaren har vunnit eller förlorat.  
-Detta görs genom en if sats som går igenom hur mycket en spelare ska få beroende på hur många rader som rullades.
+Detta görs genom en *if sats* som går igenom hur mycket en spelare ska få beroende på hur många rader som rullades.
 När programmet vet hur mycket den ska öka med skickas det med i en funktion som heter win_amount.  
 win_amount tar emot hur mycket spelaren satsade och med hur mycket den ska öka och ger då tillbaka hur mycket programmet ska ändra spelarens pengar med.
 
@@ -479,7 +481,7 @@ win_amount tar emot hur mycket spelaren satsade och med hur mycket den ska öka 
         money_change = win_amount(bet_amount, 10);
         win_check = 1;
     }
-Hur if satsen för vinst ser ut
+Hur *if satsen* för vinst ser ut
 
 <br>
 
@@ -495,18 +497,18 @@ Hur win_amount ser ut
 ### Slutet
 
 Det sista som är i programmet är en check om spelaren fortfarande har pengar och frågan om spelaren vill fortsätta.
-Vill spelaren fortsätta så kommer dom tillbaka till satsning biten.
-Om spelaren väljer att sluta så får dom ut hur mycket pengar dom har nu och hur mycket det ändra sig ifrån det dom satte in.
+Vill spelaren fortsätta så kommer spelaren tillbaka till satsning biten.
+Om spelaren väljer att sluta så får spelaren ut hur mycket pengar spelaren har nu och hur mycket det ändra sig ifrån det spelaren satte in.
 
 <br>
 
 ## Diskussion
 
-Några svagheter med mit program är att alla mina strängar för text är satta som globala variabler. Det gör att strängarna är en säkerhets riks för minnes hantering men vet inte helt hur jag skulle kunna gör om strängarna till lokala variabler då flera funktioner behöver dom.
-En annan svaghet med mit program är hur jag har gjort min matris då från vad jag har kunnat hit så fins det nyare sät att göra matriser på genom std::array vilket skulle göra säkrare matriser då man inte kan råka gå utanför dom typerna av matriser.
-Sättet som brädet är visat för spelaren fungerar men är ganska dåligt och borde kunna göras mycket bättre.
+Några svagheter med mitt program är att alla mina strängar för text är satta som globala variabler. Det gör att strängarna är en säkerhetsrisks för minneshantering men vet inte hur jag skulle kunna gör om strängarna till lokala variabler då flera funktioner behöver dom.
+En annan svaghet med program är hur jag har gjort min matris då från vad jag har kunnat hitta så finns det nyare sätt att göra matriser på genom std::array vilket skulle göra säkrare matriser då man inte kan råka gå utanför dom typerna av matriser.
+Sättet som spelplanen är visat för spelaren fungerar men borde kunna göras mycket bättre.
 
-En styrkor med mit program är hur programmet rullar fram brädet då det skulle kunna fungera för hur storlek av matris man än har men även att det är en ganska liten kod så den tar inte upp mycket minne. En annan styrka med mit program är hur programmet hittar rader i brädet då hela den biten är i en funktion som ganska effektivt hittar antalet rader i brädet.
+En styrkor med mitt program är hur programmet rullar fram spelplanen då det skulle kunna fungera för hur storlek av matris man än har men även att det är en ganska liten kod så den tar inte upp mycket minne. En annan styrka med mitt program är hur programmet hittar rader i spelplanen då hela den biten är i en funktion som ganska effektivt hittar antalet rader i spelplanen.
 
 <br>
 <br>
@@ -603,7 +605,7 @@ En styrkor med mit program är hur programmet rullar fram brädet då det skulle
             question_bet = "Hur mycket vill du satsa den här omgången? (1 för 100, 2 för 300, 3 för 500)";
             not_enough_money = "Inte tillräckligt med pengar för den satsningen";
             question_start_loop  = "Är du säker på att du vill starta spelet med en satsning på " + to_string(bet_amount) + " kr? (1 för ja, 2 för nej)";
-            amount_of_rows = "Från brädet som rullades finns det " + to_string(rows) + " rader av symboler";
+            amount_of_rows = "Från spelplanen som rullades finns det " + to_string(rows) + " rader av symboler";
             lose = "Du har förlorat spelet och din insats";
             win = "Du har vunnit spelet och dina pengar har ökat med " + to_string(money_change) + " kr";
             out_of_money = "Du har slut på pengar och har därför blivit utslängd ur spelet";
@@ -635,9 +637,9 @@ En styrkor med mit program är hur programmet rullar fram brädet då det skulle
         return answer;
     }
 
-    /*----------------------------------------------*\
-    |   Funktion för att kollar horisontella rader   |
-    \*----------------------------------------------*/
+    /*---------------------------------------------*\
+    |   Funktion för att kolla horisontella rader   |
+    \*---------------------------------------------*/
     int horizontal(string board[3][3], int row, int size_board){
         int answer = 0;
 
@@ -651,9 +653,9 @@ En styrkor med mit program är hur programmet rullar fram brädet då det skulle
         return answer;
     }
 
-    /*-------------------------------------------*\
-    |   Funktion för att kollar vertikala rader   |
-    \*-------------------------------------------*/
+    /*------------------------------------------*\
+    |   Funktion för att kolla vertikala rader   |
+    \*------------------------------------------*/
     int vertical(string board[3][3], int colum, int size_board){
         int answer = 0;
 
@@ -668,7 +670,7 @@ En styrkor med mit program är hur programmet rullar fram brädet då det skulle
     }
 
     /*----------------------------------------------------*\
-    |   Funktion för att kollar hur många rader som fins   |
+    |   Funktion för att kolla hur många rader som finns   |
     \*----------------------------------------------------*/
     int Check_board(string board[3][3], int true_size_board){
         int rows = 8;
@@ -715,9 +717,9 @@ En styrkor med mit program är hur programmet rullar fram brädet då det skulle
         return answer;
     }
 
-    /*----------------------------------------------------------*\
-    |   Funktion för att checka och fixa cin om något går fell   |
-    \*----------------------------------------------------------*/
+    /*---------------------------------------------------------*\
+    |   Funktion för att checka och fixa cin om något går fel   |
+    \*---------------------------------------------------------*/
     void cin_check(){
         if (cin.fail()){
             cin.clear();
@@ -748,7 +750,7 @@ En styrkor med mit program är hur programmet rullar fram brädet då det skulle
         int win_check = 0;
         int keep_playing = 0;
 
-        // variabler för brädet
+        // variabler för spelplanen
         string board[3][3];
         int size_board = size(board); 
         string symbol;
@@ -909,7 +911,7 @@ En styrkor med mit program är hur programmet rullar fram brädet då det skulle
             }
             
             /*-----------------------*\
-            |   Slumpar fram brädet   |
+            |   Slumpar fram spelplanen   |
             \*-----------------------*/
             for (int i = 0; i < size_board; i++){
                 for (int x = 0; x < size(board[i]); x++){
@@ -919,7 +921,7 @@ En styrkor med mit program är hur programmet rullar fram brädet då det skulle
             }
 
             /*----------------*\
-            |   Visar brädet   |
+            |   Visar spelplanen   |
             \*----------------*/
             cout<< blank << endl;
             cout<< board[0][0] + " " + board[0][1] + " " + board[0][2] << endl;
@@ -928,7 +930,7 @@ En styrkor med mit program är hur programmet rullar fram brädet då det skulle
             _sleep(3000);
 
             /*---------------------------------*\
-            |   Hittar mängden rader i brädet   |
+            |   Hittar mängden rader i spelplanen   |
             \*---------------------------------*/
             rows = Check_board(board, size_board);
 
