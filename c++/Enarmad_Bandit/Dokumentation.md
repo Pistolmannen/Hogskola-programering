@@ -55,7 +55,7 @@ Skapandet av spelplanen görs genom att i början av koden skapa en lista som in
 ### Kunna slumpa nio stycken symboler till spelplanen. 
 slumpandet av spelplanen sker i en loop som går igenom alla plates och ger ut en av tre olika symboler till varje.
 
-### Vissa spelplanen på ett snyggt sät till spelaren.  
+### Visa spelplanen på ett snyggt sätt till spelaren.  
 Programmet skriver ut varje plats i spelplanen för sig med ett litet mellanrum mellan symbolerna.
 
 ### Hur programmet ska kunna hitta rader i spelplanen.  
@@ -164,7 +164,7 @@ När programmet har visat det framrullade spelplanen för spelaren ska den sedan
 Detta var tänka att hända i en funktion som går igenom alla typer av rader det kan ha blivit.
 
 Efter att ha hittat hur många rader som det finns på spelplanen ska programmet ge ut korrekt vinst till spelaren (om spelaren vann).  
-Detta skulle hälst göras i en funktion som tar in hur mycket spelaren satsade och hur mycket det ska ändras med.
+Detta skulle helst göras i en funktion som tar in hur mycket spelaren satsade och hur mycket det ska ändras med.
 
 <br>
 
@@ -289,7 +289,7 @@ Regler är en cin som frågar om spelaren vill se reglerna och visar dom om spel
 
 Efter regler är insättning vilket är en cin som tar alla tal över 100 som spelarens start summa.
 
-När programmet är klart med insättning så starta spel loopen.
+När programmet är klart med insättning så starta spel-loopen.
 
 <br>
 
@@ -334,7 +334,7 @@ Exempel på satsning
 ### Rullandet av spelplanen
 
 När spelaren är säker på sin satsning så börjar programmet med att rulla spelplanen.  
-Detta sker i en for loop som går igenom alla platser i spelplanen och kör en funktion på dom som ger en slumpmässig symbol.
+Detta sker i en *for* loop som går igenom alla platser i spelplanen och kör en funktion på dom som ger en slumpmässig symbol.
 
 Slutet av rullningen är också där programmet visar spelplanen för spelaren.
 
@@ -378,7 +378,7 @@ För att programmet ska kunna hitta mängden rader i spelplanen används funktio
 
 Check_board går igenom alla möjliga sätt rader kan formas på för att see hur många rader det finns.
 För att göra detta använder Check_board funktionerna horizontal och vertical vilket går igenom vertikala och horisontella rader.
-Check_board har också två for loopar för att kolla diagonala rader.  
+Check_board har också två *for* loopar för att kolla diagonala rader.  
 Check_board räknar baklänges så börjar på det högsta mängden rader (8) och för varje gång den inte hittar en rad minskar den talet med 1.
 
 <br>
@@ -458,8 +458,8 @@ Funktionen vertical
 
 När programmet har hitat antalet rader så ska det räkna ut hur mycket spelaren har vunnit eller förlorat.  
 Detta görs genom en *if sats* som går igenom hur mycket en spelare ska få beroende på hur många rader som rullades.
-När programmet vet hur mycket den ska öka med skickas det med i en funktion som heter *win_amount*.  
-*win_amount* tar emot hur mycket spelaren satsade och med hur mycket den ska öka och ger då tillbaka hur mycket programmet ska ändra spelarens pengar med.
+När programmet vet hur mycket den ska öka med skickas det med i en funktion som heter win_amount.  
+win_amount tar emot hur mycket spelaren satsade och med hur mycket den ska öka och ger då tillbaka hur mycket programmet ska ändra spelarens pengar med.
 
     if (rows == 0){
         money_change = win_amount(bet_amount, -1);
@@ -481,7 +481,7 @@ När programmet vet hur mycket den ska öka med skickas det med i en funktion so
         money_change = win_amount(bet_amount, 10);
         win_check = 1;
     }
-Hur if satsen för vinst ser ut
+Hur *if satsen* för vinst ser ut
 
 <br>
 
