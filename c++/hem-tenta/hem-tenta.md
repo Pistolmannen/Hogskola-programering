@@ -65,15 +65,23 @@ C. sätt sig i bilen
 sätt i nycken  
 vrid om nycken  
 starta motorn  
-tryck på pedalerna  
+tryck på gas pedalen  
 
-D. Linjärsökning är att programmet ska söka igenom en array ifrån början till slutet. Linjärsökningar är enkla att implementera och förstå men kan ta lång tid om det blir långa arrayer eller komplicerade jämförelser. Binärsökning.
+D. Linjärsökning är att programmet ska söka igenom en array ifrån början till slutet tills den hittar alla svar. Linjärsökningar är enkla att implementera och förstå men kan ta lång tid om det blir långa arrayer eller komplicerade jämförelser.   
+Binärsökning är att programmet börjar i mitten av arrayen och kollar om det den söker efter är mer, mindre eller samma som mitten och kan sen ta bort hälften av arrayen om den inte hitta svaret och börja om i miten av det som är kvar tills den har hitat svaret. Binärsökning är mycket snabbare än linjärsökningar och mer effektiv men kräver att arrayen är sorterad och kan vara svårare att förstå.
 
-E.
+E. Bubbelsortering (kommer användas som minst först) fungerar genom att den går igenom varje tal i arrayen och kollar om talet till höger är mindre eller större och är det mindre så byter den plats på dom. Bubbelsorteringen kommer fortsätta så tills kan gå igenom hela arrayen utan att behöva byta några tal.  
 
-F.
+Så när bubbelsorteringen ska gå igenom  [1 , 4 , 2 , 3 ] kommer den börja med att kolla om 4 är mindre än 1 vilket det inte är så inget händer men när bubbelsorteringen kollar nästa position om 2 är mindre än 4 så kommer den byta plats på dom så arrayen blir [1 , 2 , 4 , 3 ]. Efter att ha byt plats på 2 och 4 kommer bubbelsorteringen fortsätta med om 3 är mindre än 4 och byta på dom så arrayen blir [1 , 2 , 3 , 4 ]. Nu när bubbelsorteringen har nåt slutet av arrayen så börjar den om ifrån början och går igenom arrayen igen för att se om något behöver flyttas men eftersom det inte är något kvar att flyta på så kommer den att nå slutet av arrayen utan att flyttat på något och avsluta bubbelsorteringen där.       
 
-G.
+F. Att dela upp programmet i funktioner hjälper då det blir enklare att se vad som händer i programmet om allt inte är i main. 
+En annan fördel är att det blir enklare att debugga om programmet är uppdelat då man kan se vilken funktion det är som problem händer i. 
+Funktioner hjälper också om man ska göra samma sak fler gånger då man inte behöver skriva samma kod flera gånger utan kan istället använda en funktion för att hålla koden och sen använder man bara funktionen. 
+Funktioner kan också vara bra för säkerhet då man kan gömma händelser lättare i funktion så det inte går att komma åt dom lika lät utifrån.  
+
+G. Ett hjälpmedel är auto indentering då programmet blir enklare att förstå om saker är indenterade så att kunna automatiskt indentera hjälper.
+Bibliotek är också en väldigt hjälpsam sak då programmeraren sliper behöva till exempel skapa sin egen cout utan kan istället importera en genom ett bibliotek.
+Ett annat hjälpmedel är kompilatorn med att den kan ofta hitta fel i koden så programmeraren inte behöver söka igenom hela koden utan kan titta på buggrapporten för att hitta vart problemet är vilket gör det mycket enklare att bugg fixa. 
 
 <br>
 
