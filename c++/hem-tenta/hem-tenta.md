@@ -31,6 +31,8 @@ En Iteration kan köras 0 eller flera gånger men ska helst ha ett slut någon g
 Sekvens är att program ska ha en början och ett slut som är vart programmet ska börja och vart det ska sluta.
 
 <br>
+<br>
+<br>
 
 ## Uppgift 2
 
@@ -58,6 +60,9 @@ E. Ett vanligt misstag är att man direkt börjar med implementation av programm
 Ett annat problem är att man glömmer eller inte tänker på dolda krav som program har. Det kan ofta leda till att man missar viktiga delar eller gör antaganden som kunden inte gillar så man får börja om eller göra om mycket av koden.
 
 <br>
+<br>
+<br>
+<br>
 
 ## Uppgift 3
 
@@ -84,6 +89,10 @@ En annan fördel är att det blir enklare att debugga om programmet är uppdelat
 Funktioner hjälper också om man ska göra samma sak fler gånger då man inte behöver skriva samma kod flera gånger utan kan istället använda en funktion för att hålla koden och sen bara använda funktionen. 
 Funktioner kan också vara bra för säkerhet då man kan gömma händelser lättare i funktion så det inte går att komma åt dom lika lät utifrån.  
 
+<br>
+<br>
+<br>
+
 G. Ett hjälpmedel är auto indentering då programmet blir enklare att förstå om saker är indenterade så att kunna automatiskt indentera hjälper.
 Bibliotek är också en väldigt hjälpsam sak då programmeraren sliper behöva till exempel skapa sin egen cout utan kan istället importera en genom ett bibliotek.
 Ett annat hjälpmedel är kodning program som till exempel visual studio code då dom hjälper att hålla koll på ens kod men också att stava korrekt men även skapa delar av ens kod. 
@@ -108,6 +117,12 @@ D. Det som händer i detta program är att i början så sätts tal1 till 5, tal
 Efter att talen sätts så minskas tal1 och tal2 med 1 vilket också gör att *pekare minskar med 1 så talen blir tal1 = 4, tal2 = 2 och *pekare = 2.  
 Nästa del är uträkningen av tal2 = (tal1-tal2)/tal2 vilket om man säter in vad talen är blir tal2 = (4-2)/2 viket blir 1 så tal2 = 1 viket gör att *pekare också blir 1 då den fortfarande pekar på tal2 så talen är nu tal1 = 4, tal2 = 1, *pekare = 1.  
 Sista uträkningen är *pekare = *pekare+*pekare vilket om man säter in talen blir *pekare = 1+1 så *pekare = 2 men eftersom *pekare pekar på tal2 så byte tal2 också till 2 så det som skrivs ut efter det i couten blir 4 2 2. 
+
+<br>
+<br>
+<br>
+<br>
+<br>
 
 E. Några fel som jag kan hitta i koden är   
 * det finns inget bibliotek som heter sodastream. 
